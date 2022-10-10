@@ -1,5 +1,8 @@
 import React from "react";
 import { AppButton } from "../Widgets/Button/AppButton";
+import mockup from "../../assets/Images/mockup-one.png";
+import Image from "next/image";
+import CustomImage from "../Widgets/CustomImage/CustomImage";
 
 const features = [
   {
@@ -48,7 +51,23 @@ const Features = () => {
           </div>
         </div>
       </div>
-      <div className="mockup hidden lg:block bg-cyan-100 flex-1"></div>
+      <div
+        data-aos="zoom-in"
+        data-aos-offset="100"
+        className="mockup hidden lg:block flex-1"
+      >
+        {/* <Image
+          src={mockup}
+          alt=""
+          objectFit="contain"
+          width={600}
+          height={800}
+        /> */}
+        <CustomImage
+          src={mockup}
+          className="w-[600px] animate-zoom-out h-[700px]"
+        />
+      </div>
     </div>
   );
 };

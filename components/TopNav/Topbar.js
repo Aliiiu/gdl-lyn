@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TopContainer } from "./topbar.style";
+import { Linker, TopContainer } from "./topbar.style";
 import LinkList from "../Widgets/Link/Link";
 import Link from "next/link";
 import Menu, { MenuClose } from "../Widgets/Icons/Menu";
@@ -8,15 +8,28 @@ import { AppButton } from "../Widgets/Button/AppButton";
 import CustomImage from "../Widgets/CustomImage/CustomImage";
 import img from "../../assets/Images/gdl-logo.png";
 import { useTheme } from "next-themes";
+import { IoMdClose } from "react-icons/io";
+import { TiThMenu } from "react-icons/ti";
+
+const navigation = [
+  { name: "Home", href: "home", current: true },
+  { name: "How it works", href: "how-it-works", current: false },
+  { name: "FAQs", href: "faq", current: false },
+  { name: "Contact", href: "contact", current: false },
+];
 
 const Topbar2 = props => {
   const [mode, setMode] = useState(false);
   const [open, setOpen] = useState(false);
   const { theme, setTheme } = useTheme();
+
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(" ");
+  }
   return (
-    <TopContainer className="bg-white w-full border-b border-gray-200">
-      <div className="bg-transparent lg:w-4/6 w-full animate-fade-in">
-        <nav className="px-2 sm:px-8 py-2.5 z-20 top-0 left-0">
+    <TopContainer className="bg-white top-0 sticky z-40 w-full border-b border-gray-200">
+      <div className="bg-transparent lg:w-5/6 xl:w-4/6 w-full animate-fade-in">
+        <nav className=" py-2.5 z-20 top-0 left-0">
           <div className="container flex flex-wrap justify-between items-center mx-auto">
             <Link href="/">
               <CustomImage
@@ -35,13 +48,13 @@ const Topbar2 = props => {
               <button
                 data-collapse-toggle="navbar-sticky"
                 type="button"
-                className="inline-flex items-center sm:p-2 p-0 text-sm text-black rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-0 focus:ring-gray-200 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                className="inline-flex items-center pr-3 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none"
                 aria-controls="navbar-sticky"
                 aria-expanded="false"
                 onClick={() => setOpen(!open)}
               >
                 <span className="sr-only">Open main menu</span>
-                {!open ? <Menu theme={theme} /> : <MenuClose theme={theme} />}
+                {!open ? <TiThMenu size={25} /> : <IoMdClose size={25} />}
               </button>
             </div>
             <div
@@ -49,10 +62,24 @@ const Topbar2 = props => {
               id="navbar-sticky"
             >
               <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-light md:border-0 md:bg-white dark:bg-black md:dark:bg-black text-gray-500 dark:text-gray-400 dark:border-gray-700">
-                <LinkList name="Home" url="/about" />
-                <LinkList name="Personal" url="/blogs" />
-                <LinkList name="Business" url="/portfolio" />
-                <LinkList name="Company" />
+                {navigation.map(item => (
+                  <Linker
+                    key={item.name}
+                    to={item.href}
+                    activeClass="active"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={1000}
+                    className={classNames(
+                      item.current ? "text-white link-text" : "text-gray-300",
+                      "px-3 py-2 rounded-md text-lg font-medium"
+                    )}
+                    aria-current={item.current ? "page" : undefined}
+                  >
+                    {item.name}
+                  </Linker>
+                ))}
               </ul>
             </div>
           </div>
@@ -69,13 +96,28 @@ const Topbar2 = props => {
               <div className="md:hidden" id="mobile-menu">
                 <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                   <ul className="flex flex-col items-center p-4 mt-4 bg-gray-50 rounded-lg border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-light md:border-0 md:bg-white dark:bg-black md:dark:bg-black text-gray-500 dark:text-gray-400 dark:border-gray-700">
-                    <LinkList name="about" url="/about" />
-                    <LinkList name="Personal" url="/blogs" />
-                    <LinkList name="Business" url="/portfolio" />
-                    <LinkList name="Company" />
+                    {navigation.map(item => (
+                      <Linker
+                        key={item.name}
+                        to={item.href}
+                        activeClass="active"
+                        spy={true}
+                        smooth={true}
+                        offset={-70}
+                        duration={1000}
+                        className={classNames(
+                          item.current
+                            ? "text-white link-text"
+                            : "text-gray-300",
+                          "px-3 py-2 rounded-md text-lg font-medium"
+                        )}
+                        aria-current={item.current ? "page" : undefined}
+                      >
+                        {item.name}
+                      </Linker>
+                    ))}
                     <AppButton
                       name="Get Started"
-                      size="17px"
                       className="bg-black px-4 py-2 text-md font-semibold"
                     />
                   </ul>

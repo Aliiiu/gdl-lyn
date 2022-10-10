@@ -36,3 +36,5 @@ export const TextField = React.forwardRef(
     );
   }
 );
+
+TextField.displayName = "TextField";

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-scroll";
 
 export const TopContainer = styled.div`
   display: flex;
@@ -13,4 +14,12 @@ export const TopContainer = styled.div`
   /* @media only screen and (max-width: 1024px) {
     padding: 0;
   } */
+`;
+
+export const Linker = styled(Link)`
+  color: #8d2e36;
+  cursor: pointer;
+  &.active {
+    color: #000;
+  }
 `;

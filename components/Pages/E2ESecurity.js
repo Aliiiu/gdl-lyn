@@ -1,10 +1,13 @@
 import React from "react";
 import security from "../../constants/security";
 import { AppButton } from "../Widgets/Button/AppButton";
+import Image from "next/image";
+import mockup from "../../assets/Images/mockup-two.png";
+import CustomImage from "../Widgets/CustomImage/CustomImage";
 
 const E2ESecurity = () => {
   return (
-    <div className="flex gap-6">
+    <div className="flex justify-between">
       <div className="flex-1 flex flex-col justify-center items-center lg:items-start gap-4 lg:gap-8 py-10">
         <h3 className="text-2xl lg:text-4xl font-semibold">
           End-to-end security
@@ -47,7 +50,20 @@ const E2ESecurity = () => {
           />
         </div>
       </div>
-      <div className="mockup hidden lg:block bg-cyan-100 flex-1"></div>
+      <div
+        data-aos="zoom-in"
+        data-aos-offset="120"
+        className="mockup hidden lg:flex justify-center flex-1"
+      >
+        {/* <Image
+          src={mockup}
+          alt=""
+          objectFit="contain"
+          width={700}
+          height={800}
+        /> */}
+        <CustomImage src={mockup} className="w-[400px] h-[600px]" />
+      </div>
     </div>
   );
 };

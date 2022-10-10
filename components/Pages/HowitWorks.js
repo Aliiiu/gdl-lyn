@@ -32,7 +32,7 @@ const HowitWorks = () => {
         {howItWorks.map(step => (
           <div
             key={step.id}
-            className="flex flex-col gap-2 bg-gray-50 lg:gap-4 w-full items-center p-5"
+            className="flex flex-col gap-2 bg-gray-50 lg:gap-4 w-full items-center p-5 py-10 rounded-2xl"
           >
             <div className="lg:w-8 lg:h-8 w-6 h-6 rounded-full bg-gray-800 text-white flex items-center justify-center">
               {step.id}
