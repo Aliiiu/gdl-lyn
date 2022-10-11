@@ -31,7 +31,7 @@ const Merit = () => {
   return (
     <div>
       <div className="flex flex-col gap-5 md:flex-row justify-between">
-        <h4 className="text-2xl lg:text-4xl capitalize font-semibold">
+        <h4 className="text-2xl lg:text-4xl animate-fade-in capitalize font-semibold">
           Advantages of using <br /> card bank
         </h4>
         <div className="flex items-start gap-3 max-w-[500px] text-sm lg:text-base xl:pr-20">

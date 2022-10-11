@@ -23,10 +23,10 @@ const Features = () => {
       <div className="feature flex-1 flex flex-col justify-center items-center lg:items-start gap-4 py-10">
         <div className="header flex gap-3 items-center ">
           <div className="w-8 h-1 bg-gray-700"></div>
-          <h5>Features for you</h5>
+          <h5 className="">Features for you</h5>
         </div>
         <div className="title">
-          <h3 className="text-2xl lg:text-4xl lg:max-w-[400px] font-semibold">
+          <h3 className="text-2xl lg:text-4xl animate-fade-in lg:max-w-[400px] font-semibold">
             Fintech, one app thousands of benefits
           </h3>
         </div>

@@ -17,16 +17,16 @@ const Contact = () => {
           <div className="flex gap-1 lg:gap-3 justify-center items-center">
             <CustomImage
               src={img}
-              className="w-[45px] h-[45px] lg:w-[65px] lg:h-[110px]"
+              className="w-[45px] h-[45px] lg:w-[65px] lg:h-[80px]"
             />
             <div>
-              <h1 className="text-base font-extrabold text-black md:text-3xl">
+              <h1 className="text-base font-extrabold text-black md:text-xl">
                 GDL
               </h1>
-              <p className="text-sm lg:text-base text-graytwocolor">RC623338</p>
+              <p className="text-sm text-graytwocolor">RC623338</p>
             </div>
           </div>
-          <p className="text-sm md:text-base text-left pt-2">
+          <p className="text-sm text-left pt-2">
             No 1, Afolabi Lesi Street, Ilupeju, Lagos <br />
             <b>+2347054435000 , +2349058179336 </b>
             <br /> customerservice@gdl.com.ng
@@ -35,19 +35,19 @@ const Contact = () => {
             <Wobble>
               <CustomImage
                 src={inst}
-                className="w-[25px] h-[25px] lg:w-[35px] lg:h-[35px]"
+                className="w-[25px] h-[25px] lg:w-[30px] lg:h-[30px]"
               />
               <CustomImage
                 src={tweet}
-                className="w-[25px] h-[25px] lg:w-[35px] lg:h-[35px]"
+                className="w-[25px] h-[25px] lg:w-[30px] lg:h-[30px]"
               />
               <CustomImage
                 src={lind}
-                className="w-[25px] h-[25px] lg:w-[35px] lg:h-[35px]"
+                className="w-[25px] h-[25px] lg:w-[30px] lg:h-[30px]"
               />
               <CustomImage
                 src={face}
-                className="w-[25px] h-[25px] lg:w-[35px] lg:h-[35px]"
+                className="w-[25px] h-[25px] lg:w-[30px] lg:h-[30px]"
               />
             </Wobble>
           </div>

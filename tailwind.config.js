@@ -14,7 +14,7 @@ module.exports = {
         graytwocolor: "#2F2F2F",
       },
       animation: {
-        "fade-in": "fadeIn 1s ease-in-out",
+        "fade-in": "fadeIn 2s ease-in-out",
         "slide-up": "slideUp 1s ease-in-out",
         "zoom-out": "zoomOut 1s ease-in-out",
       },

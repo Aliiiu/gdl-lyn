@@ -62,7 +62,7 @@ const Topbar2 = props => {
               className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1"
               id="navbar-sticky"
             >
-              <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-light md:border-0 md:bg-white dark:bg-black md:dark:bg-black text-gray-500 dark:text-gray-400 dark:border-gray-700">
+              <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-light md:border-0 md:bg-white text-gray-500">
                 {navigation.map(item => (
                   <Linker
                     key={item.name}
@@ -96,7 +96,7 @@ const Topbar2 = props => {
             {ref => (
               <div className="md:hidden" id="mobile-menu">
                 <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                  <ul className="flex flex-col items-center p-4 mt-4 bg-gray-50 rounded-lg border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-light md:border-0 md:bg-white dark:bg-black md:dark:bg-black text-gray-500 dark:text-gray-400 dark:border-gray-700">
+                  <ul className="flex flex-col items-center p-4 mt-4 bg-gray-50 rounded-lg border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-light md:border-0 md:bg-white text-gray-500">
                     {navigation.map(item => (
                       <Linker
                         key={item.name}

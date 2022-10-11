@@ -9,7 +9,7 @@ const E2ESecurity = () => {
   return (
     <div className="flex justify-between">
       <div className="flex-1 flex flex-col justify-center items-center lg:items-start gap-4 lg:gap-8 py-10">
-        <h3 className="text-2xl lg:text-4xl font-semibold">
+        <h3 className="text-2xl lg:text-4xl animate-fade-in font-semibold">
           End-to-end security
         </h3>
         <p className="max-w-[400px] text-center lg:text-start text-sm lg:text-base">

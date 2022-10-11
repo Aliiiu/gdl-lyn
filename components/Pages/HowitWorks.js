@@ -26,7 +26,9 @@ const HowitWorks = () => {
         <h5 className="text-base">Process</h5>
       </div>
       <div className="title">
-        <h3 className="text-2xl lg:text-4xl font-semibold">How it works</h3>
+        <h3 className="text-2xl lg:text-4xl animate-fade-in font-semibold">
+          How it works
+        </h3>
       </div>
       <div className="flex flex-col md:flex-row gap-6 md:justify-between py-4 lg:py-8 w-full">
         {howItWorks.map(step => (
