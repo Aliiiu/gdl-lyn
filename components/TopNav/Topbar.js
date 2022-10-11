@@ -32,16 +32,17 @@ const Topbar2 = props => {
         <nav className=" py-2.5 z-20 top-0 left-0">
           <div className="container flex flex-wrap justify-between items-center mx-auto">
             <Link href="/">
-              <CustomImage
-                src={img}
-                className="w-[40px] h-[40px] lg:w-[70px] lg:h-[70px]"
-              />
+              <a>
+                <CustomImage
+                  src={img}
+                  className="w-[40px] h-[40px] lg:w-[70px] lg:h-[70px]"
+                />
+              </a>
             </Link>
             <div className="flex md:order-2 justify-start">
               <div className="hidden md:block">
                 <AppButton
                   name="Get Started"
-                  size="17px"
                   className="bg-black px-6 py-3 text-md font-semibold"
                 />
               </div>

@@ -1,8 +1,8 @@
 import React from "react";
 import { StartContainer } from "./page.style";
-import { TextField } from "../Widgets/Form/Form";
 import { AppButton } from "../Widgets/Button/AppButton";
 import Flash from "react-reveal/Flash";
+import FormTextField from "../Widgets/Form/Form";
 
 const JoinClub = () => {
   return (
@@ -30,9 +30,9 @@ const JoinClub = () => {
           </div>
         </div>
         <div className="flex-1 flex flex-col">
-          <TextField label="Name" type="text" />
-          <TextField label="Email" type="email" />
-          <TextField label="Phone Number" type="phone" />
+          <FormTextField label="Name" type="text" />
+          <FormTextField label="Email" type="email" />
+          <FormTextField label="Phone Number" type="phone" />
           <div className="pt-7">
             {/* <AppButton
               name="Get Started"
