@@ -39,21 +39,27 @@ function MyApp({ Component, pageProps }) {
         />
         <meta property="og:site_name" content="GDL-PR" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.anyworks-ng.com" />
+        <meta
+          property="og:url"
+          content="https://frontend-pr-update.vercel.app"
+        />
         <meta
           property="og:description"
           content="Save, Invest and Borrow with Ease. Relax and make your money work for you."
         />
         <meta
           property="og:image"
-          content="https://www.anyworks-ng.com/gdl-logo.png"
+          content="https://frontend-pr-update.vercel.app/gdl-logo.png"
         />
-        <meta property="og:url" content="https://www.anyworks-ng.com" />
+        <meta
+          property="og:url"
+          content="https://frontend-pr-update.vercel.app/"
+        />
         <meta name="twitter:image" content="/icon.png" />
 
         <link
           rel="shortcut icon"
-          href="https://www.anyworks-ng.com/gdl-logo.png"
+          href="https://frontend-pr-update.vercel.app/gdl-logo.png"
         />
       </Head>
       <Topbar />
