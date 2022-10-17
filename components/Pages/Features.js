@@ -1,7 +1,7 @@
 import React from "react";
 import { AppButton } from "../Widgets/Button/AppButton";
-import mockup from "../../assets/Images/mockup-one.png";
-import mockup2 from "../../assets/Images/heroBg2.png";
+// import mockup from "../../assets/Images/mockup-one.png";
+// import mockup2 from "../../assets/Images/heroBg2.png";
 import Image from "next/image";
 import CustomImage from "../Widgets/CustomImage/CustomImage";
 
@@ -55,7 +55,7 @@ const Features = () => {
         className="mockup hidden lg:block flex-1"
       >
         <CustomImage
-          src={mockup2}
+          src={"/Images/heroBg2.png"}
           className="w-[600px] animate-zoom-out h-[700px]"
         />
       </div>

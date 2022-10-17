@@ -3,7 +3,7 @@ import { Button } from "./appbutton.style";
 import { Link } from "react-scroll";
 
 export const AppButton = ({ onPress, loading, ...props }) => (
-  <Link to="our-product" spy={true} smooth={true} offset={-70} duration={1000}>
+  <Link to="get-started" spy={true} smooth={true} offset={-70} duration={1000}>
     <Button
       {...props}
       className={props.className}

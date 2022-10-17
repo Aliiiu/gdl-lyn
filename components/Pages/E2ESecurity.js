@@ -9,7 +9,7 @@ import CustomImage from "../Widgets/CustomImage/CustomImage";
 const E2ESecurity = () => {
   return (
     <div className="flex flex-col lg:flex-row lg:gap-12 lg:justify-between">
-      <div className="flex-1  flex justify-start items-center lg:w-1/2 py-10">
+      <div className="flex-1 flex justify-center lg:justify-start items-center lg:w-1/2 py-10">
         <div className=" flex flex-col justify-center items-center lg:items-start max-w-[450px] gap-4 xl:gap-6">
           <div className="header flex gap-3 items-center">
             <div className="lg:w-10 w-6 h-1 bg-gray-700"></div>

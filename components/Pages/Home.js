@@ -17,7 +17,7 @@ import CustomImage from "../Widgets/CustomImage/CustomImage";
 
 const Home = () => {
   return (
-    <div className="flex gap-4 md:py-5 md:pb-0">
+    <div className="flex flex-col gap-4 md:py-5 md:pb-0">
       <div className="info flex-1 pt-5 xl:justify-center flex flex-col">
         <Flash>
           <div className="bg-transparent text-center lg:text-left">
@@ -57,14 +57,14 @@ const Home = () => {
           />
         </div>
       </div>
-      <div className="flex-1 lg:flex flex-col hidden">
+      <div className="flex-1 flex flex-col">
         {/* <CustomImage
           src={bgHero3}
           className="animate-zoom-out w-[600px] h-[600px]"
         /> */}
         <CustomImage
           src={bgHero}
-          className="animate-zoom-out w-[700px] h-[600px]"
+          className="animate-zoom-out w-full xl:w-auto xl:max-w-[700px] h-[300px] xl:h-[600px]"
         />
       </div>
     </div>

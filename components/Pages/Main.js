@@ -30,8 +30,8 @@ const Main = () => {
         className="container relative lg:w-5/6 xl:w-4/6 w-full py-10 lg:pt-[2rem]"
       >
         <div className="absolute top-0 -z-10 left-0 flex justify-center items-center -ml-32">
-          <div className="flex items-center justify-center rounded-[9999px] dark:border-gray-800 border-[#FFF1F4] w-[400px] h-[400px] lg:w-[800px] lg:h-[800px] border-[32px]">
-            <div className="flex items-center justify-center rounded-[9999px] dark:border-gray-900 border-[#FFF5F7] border-[32px] w-[345px] h-[345px] lg:w-[745px] lg:h-[745px]" />
+          <div className="flex items-center justify-center rounded-[9999px] border-[#FFF1F4] w-[400px] h-[400px] lg:w-[800px] lg:h-[800px] border-[32px]">
+            <div className="flex items-center justify-center rounded-[9999px] border-[#FFF5F7] border-[32px] w-[345px] h-[345px] lg:w-[745px] lg:h-[745px]" />
           </div>
         </div>
         <Merit />
@@ -42,10 +42,7 @@ const Main = () => {
       >
         <Features />
       </section> */}
-      <section
-        id="end-to-end-security"
-        className="container lg:w-5/6 xl:w-4/6 w-full "
-      >
+      <section id="perks" className="container lg:w-5/6 xl:w-4/6 w-full ">
         <E2ESecurity />
       </section>
       {/* <section id="pricing-plan" className="container lg:w-4/6 w-full md:py-10">
@@ -60,7 +57,10 @@ const Main = () => {
       >
         <FAQs />
       </section> */}
-      <section className="bg-[#8D2733] py-10 flex justify-center w-full">
+      <section
+        id="get-started"
+        className="bg-[#8D2733] py-10 flex justify-center w-full"
+      >
         <div className="container w-full lg:w-5/6 xl:w-4/6">
           <FAQs />
         </div>
