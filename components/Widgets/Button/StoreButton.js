@@ -34,7 +34,7 @@ export const Content = ({ icon, ...props }) => (
     </div>
     <div className="flex flex-col pl-2 md:pl-4 items-start">
       <span
-        className="m-0 p-0 hidden md:block leading-none text-xs"
+        className="m-0 p-0 hidden md:block font-ibm-font leading-none text-xs"
         style={{ fontSize: "10px" }}
       >
         Download on the

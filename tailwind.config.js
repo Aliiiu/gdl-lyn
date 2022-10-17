@@ -6,6 +6,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        "ibm-font": "IBM Plex Sans",
+        "title-font": "Helvetica, Arial, sans-serif",
+      },
       textColor: {
         primary: "#462020",
         second: "#8D2E36",

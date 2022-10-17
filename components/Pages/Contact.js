@@ -8,6 +8,13 @@ import face from "../../assets/Images/Facebook.png";
 import Wobble from "react-reveal/Wobble";
 import Image from "next/image";
 import CustomImage from "../Widgets/CustomImage/CustomImage";
+import {
+  AiFillMediumSquare,
+  AiOutlineInstagram,
+  AiFillTwitterCircle,
+  AiFillLinkedin,
+} from "react-icons/ai";
+import { BsWhatsapp, BsFacebook } from "react-icons/bs";
 
 const Contact = () => {
   return (
@@ -17,38 +24,56 @@ const Contact = () => {
           <div className="flex gap-1 lg:gap-3 justify-center items-center">
             <CustomImage
               src={img}
-              className="w-[45px] h-[45px] lg:w-[65px] lg:h-[80px]"
+              className="w-[35px] h-[45px] lg:w-[45px] lg:h-[60px]"
             />
-            <div>
-              <h1 className="text-base font-extrabold text-black md:text-xl">
+            <div className="flex flex-col justify-between">
+              <h1 className="text-base leading-7 font-extrabold text-black md:text-xl">
                 GDL
               </h1>
               <p className="text-sm text-graytwocolor">RC623338</p>
             </div>
           </div>
-          <p className="text-sm text-left pt-2">
-            No 1, Afolabi Lesi Street, Ilupeju, Lagos <br />
-            <b>+2347054435000 , +2349058179336 </b>
-            <br /> customerservice@gdl.com.ng
+          <h2 className="text-opacity-50 mt-5 text-black">
+            Growth & Development Limited
+          </h2>
+          <hr className="w-full border-gray-400 mt-4 mb-6 " />
+          <p className="text-sm text-left max-w-[250px] text-black text-opacity-50 pt-2">
+            Lagos Office : No 1, Afolabi Lesi Street, Ilupeju, Lagos | Abuja
+            Office : St James House (2nd floor), Plot 1109/No. 167 Cadastral
+            Zone A08 Ademola Adetokunbo Crescent, Wuse ll, Abuja- Nigeria
           </p>
-          <div className="flex flex-box mr-7 pt-2 lg:pt-3">
+          <div className="text-sm text-black text-opacity-50 mt-3">
+            <a href="tel:+2347054435000">+2347054435000,</a>
+            <a href="tel:+2349058179336">+2349058179336</a>
+          </div>
+          <div className="flex items-center gap-2 mr-7 pt-2 lg:pt-5">
             <Wobble>
-              <CustomImage
+              {/* <CustomImage
                 src={inst}
                 className="w-[25px] h-[25px] lg:w-[30px] lg:h-[30px]"
+              /> */}
+              <AiOutlineInstagram color="#B22F42" fontSize={30} />
+              <AiFillTwitterCircle color="#B22F42" fontSize={30} />
+              <AiFillLinkedin
+                color="#B22F42"
+                fontSize={30}
+                className="rounded-full"
               />
-              <CustomImage
+              {/* <CustomImage
                 src={tweet}
                 className="w-[25px] h-[25px] lg:w-[30px] lg:h-[30px]"
-              />
-              <CustomImage
+              /> */}
+              {/* <CustomImage
                 src={lind}
                 className="w-[25px] h-[25px] lg:w-[30px] lg:h-[30px]"
-              />
-              <CustomImage
+              /> */}
+              {/* <CustomImage
                 src={face}
                 className="w-[25px] h-[25px] lg:w-[30px] lg:h-[30px]"
-              />
+              /> */}
+              <BsFacebook color="#B22F42" fontSize={23} />
+              <AiFillMediumSquare color="#B22F42" fontSize={30} />
+              <BsWhatsapp color="#B22F42" fontSize={23} />
             </Wobble>
           </div>
         </div>

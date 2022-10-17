@@ -13,7 +13,7 @@ import { TiThMenu } from "react-icons/ti";
 
 const navigation = [
   { name: "Home", href: "home", current: true },
-  { name: "How it works", href: "how-it-works", current: false },
+  { name: "Products", href: "products", current: false },
   { name: "FAQs", href: "faq", current: false },
   { name: "Contact", href: "contact", current: false },
 ];
