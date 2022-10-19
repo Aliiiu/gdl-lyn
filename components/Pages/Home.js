@@ -17,7 +17,7 @@ import CustomImage from "../Widgets/CustomImage/CustomImage";
 
 const Home = () => {
   return (
-    <div className="flex flex-col gap-4 md:py-5 md:pb-0">
+    <div className="flex flex-col md:flex-row gap-4 md:py-5 md:pb-0">
       <div className="info flex-1 pt-5 xl:justify-center flex flex-col">
         <Flash>
           <div className="bg-transparent text-center lg:text-left">

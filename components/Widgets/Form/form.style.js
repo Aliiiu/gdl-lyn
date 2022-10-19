@@ -1,4 +1,14 @@
 import styled from "styled-components";
+import {
+  Box,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  styled as Muistyled,
+  TextareaAutosize,
+  TextField,
+} from "@mui/material";
 
 export const FormField = styled.div`
   /** style input field here */
@@ -42,3 +52,69 @@ export const Label = styled.label`
   /** style the label of input field */
   color: #fff;
 `;
+
+export const FormInput = Muistyled(props => (
+  <TextField InputProps={{ disableUnderline: true }} {...props} />
+))(({ theme, ...props }) => ({
+  "& label": {
+    color: "#24215D",
+    fontSize: "14px",
+  },
+  "& label.Mui-focused": {
+    color: "#24215D",
+    lineHeight: "1.2",
+  },
+  "& .MuiFilledInput-root": {
+    border: `1px solid ${props.error ? "red" : "#e8ebed"}`,
+    overflow: "hidden",
+    borderRadius: 3,
+    // padding: "0.8em",
+    height: "48px",
+    backgroundColor: theme.palette.mode === "light" ? "#fcfcfb" : "#2b2b2b",
+    transition: theme.transitions.create([
+      "border-color",
+      "background-color",
+      "box-shadow",
+    ]),
+    "&:hover": {
+      backgroundColor: "transparent",
+    },
+    "&.Mui-focused": {
+      backgroundColor: "transparent",
+      // boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 2px`,
+      borderColor: "#A23437",
+    },
+  },
+}));
+export const DateInput = Muistyled(props => (
+  <TextField InputProps={{ disableUnderline: true }} {...props} />
+))(({ theme, ...props }) => ({
+  "& label": {
+    color: "#24215D",
+    fontSize: "14px",
+  },
+  "& label.Mui-focused": {
+    color: "#24215D",
+    lineHeight: "1.2",
+  },
+  "& .MuiFilledInput-root": {
+    border: `1px solid ${props.error ? "red" : "#e8ebed"}`,
+    overflow: "hidden",
+    borderRadius: 3,
+    // padding: "0.8em",
+    height: "48px",
+    backgroundColor: theme.palette.mode === "light" ? "#fcfcfb" : "#2b2b2b",
+    transition: theme.transitions.create([
+      "border-color",
+      "background-color",
+      "box-shadow",
+    ]),
+    "&:hover": {
+      backgroundColor: "transparent",
+    },
+    "&.Mui-focused": {
+      backgroundColor: "transparent",
+      borderColor: "#A23437",
+    },
+  },
+}));
