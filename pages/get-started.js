@@ -1,31 +1,13 @@
-import {
-  Box,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  styled as Muistyled,
-  TextareaAutosize,
-  TextField,
-} from "@mui/material";
 import React from "react";
 import styled from "styled-components";
-import {
-  DatePicker,
-  DatePickerField,
-  DropdownField,
-  FormTextField,
-} from "../components/Widgets/Form/Form";
 import { useForm } from "react-hook-form";
-import { country, gender } from "../constants/selectValue";
-import dayjs from "dayjs";
 import BioDataForm from "../components/Widgets/Form/BioDataForm";
 import NextOfKin from "../components/Widgets/Form/NextOfKin";
 import BankDetails from "../components/Widgets/Form/BankDetails";
 import { BsArrowRightShort } from "react-icons/bs";
 import { IoCloseOutline } from "react-icons/io5";
 
-const GetStartedWrapper = styled.div`
+export const GetStartedWrapper = styled.div`
   background-image: url("../assets/GDL_BI.png");
   background-size: cover;
   .container {
@@ -46,6 +28,44 @@ const GetStartedWrapper = styled.div`
       padding: 10px;
     }
   }
+  .custom-file-upload {
+    display: inline-block;
+    position: relative;
+    width: 300px;
+    height: 191px;
+    cursor: pointer;
+    background: white;
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    input[type="file"] {
+      display: none;
+    }
+    .icon {
+      position: absolute;
+      width: 45px;
+      bottom: -60px;
+      right: 0px;
+    }
+    .img-wrapper {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      overflow: hidden;
+      border-radius: 50%;
+      img {
+        width: 100%;
+      }
+      .loading_container {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    img {
+      width: auto;
+      height: 100%;
+    }
+  }
   .mytext {
     border: 1px solid #e8ebed;
     border-radius: 4px;
@@ -59,40 +79,6 @@ const GetStartedWrapper = styled.div`
   }
 `;
 
-const FormInput = Muistyled(props => (
-  <TextField InputProps={{ disableUnderline: true }} {...props} />
-))(({ theme }) => ({
-  "& label": {
-    color: "#24215D",
-    fontSize: "14px",
-  },
-  "& label.Mui-focused": {
-    color: "#24215D",
-    lineHeight: "1.2",
-  },
-  "& .MuiFilledInput-root": {
-    border: "1px solid #e8ebed",
-    overflow: "hidden",
-    borderRadius: 3,
-    // padding: "0.8em",
-    height: "48px",
-    backgroundColor: theme.palette.mode === "light" ? "#fcfcfb" : "#2b2b2b",
-    transition: theme.transitions.create([
-      "border-color",
-      "background-color",
-      "box-shadow",
-    ]),
-    "&:hover": {
-      backgroundColor: "transparent",
-    },
-    "&.Mui-focused": {
-      backgroundColor: "transparent",
-      // boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 2px`,
-      borderColor: "#A23437",
-    },
-  },
-}));
-
 const GetStarted = () => {
   const { handleSubmit, formState, register, control } = useForm({
     mode: "onChange",
@@ -104,7 +90,7 @@ const GetStarted = () => {
   return (
     <GetStartedWrapper>
       <div className="container  mx-auto">
-        <div className="bg-rose-100 px-5 py-6">
+        <div className=" px-5 py-6">
           <div className="flex justify-center">
             <div className="flex w-full justify-center items-center">
               <span className="w-7 h-7 rounded-full bg-[#E8EbEd]"></span>
@@ -128,29 +114,8 @@ const GetStarted = () => {
               register={register}
               control={control}
             />
-            <div className="flex justify-end">
+            <div className="flex border-b border-[#e8ebed] py-5 justify-end">
               <div className="flex gap-2">
-                {/* <AppButton
-                  name="cancel"
-                  icon={
-                    <div className="w-4 h-4 flex justify-center items-center rounded-full border-white border">
-                      <IoCloseOutline className="text-md font-thin" />
-                    </div>
-                  }
-                  className="bg-[#992333] px-4 py-2 rounded-[14px] text-xl font-semibold"
-                /> */}
-                {/* <AppButton
-                  name="next"
-                  icon={
-                    <div className="w-4 h-4 flex justify-center items-center rounded-full border-white border">
-                      <BsArrowRightShort
-                        color="#ffffff"
-                        className="text-md font-thin"
-                      />
-                    </div>
-                  }
-                  className="bg-[#992333] px-4 py-2 rounded-[14px] text-xl font-semibold"
-                /> */}
                 <button
                   type="submit"
                   className="bg-[#992333] px-4 flex py-2 items-center gap-1 rounded-[14px] text-xl font-semibold"
