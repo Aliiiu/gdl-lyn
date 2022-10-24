@@ -42,7 +42,7 @@ const Topbar2 = props => {
                 <a>
                   <CustomImage
                     src={img}
-                    className="w-[40px] h-[40px] lg:w-[70px] lg:h-[70px]"
+                    className="w-[40px] h-[40px] lg:w-[50px] lg:h-[50px]"
                   />
                 </a>
               </Link>

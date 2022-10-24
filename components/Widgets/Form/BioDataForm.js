@@ -108,7 +108,7 @@ const BioDataForm = ({ control, formState, register }) => {
             name="country"
             age={age}
             handleChange={handleChange}
-            label="Country of Residence"
+            label="Country"
             selectValue={country}
             control={control}
             error={formState.errors.country}

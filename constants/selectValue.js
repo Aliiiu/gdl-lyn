@@ -1,75 +1,71 @@
 export const country = [
   {
     id: 1,
-    value: "-- select country --",
+    value: "Nigeria",
   },
   {
     id: 2,
-    value: "NIGERIA",
+    value: "Benin",
   },
   {
     id: 3,
-    value: "BENIN",
+    value: "Cameroon",
   },
   {
     id: 4,
-    value: "CAMEROON",
+    value: "Cote D'Ivore",
   },
   {
     id: 5,
-    value: "COTE D'IVORE",
+    value: "Canada",
   },
   {
     id: 6,
-    value: "CANADA",
+    value: "France",
   },
   {
     id: 7,
-    value: "FRANCE",
+    value: "Germany",
   },
   {
     id: 8,
-    value: "GERMANY",
+    value: "Ghana",
   },
   {
     id: 9,
-    value: "GHANA",
+    value: "Italy",
   },
   {
     id: 10,
-    value: "ITALY",
+    value: "Senegal",
   },
   {
     id: 11,
-    value: "SENEGAL",
+    value: "Kenya",
   },
   {
     id: 12,
-    value: "KENYA",
+    value: "Seria lone",
   },
   {
     id: 13,
-    value: "SERIA LONE",
+    value: "South africa",
   },
   {
     id: 14,
-    value: "SOUTH AFRICA",
+    value: "Spain",
   },
   {
     id: 15,
-    value: "SPAIN",
+    value: "Togo",
   },
   {
     id: 16,
-    value: "TOGO",
+    value: "United kindom",
   },
   {
     id: 17,
-    value: "UNITED KINGDOM",
-  },
-  {
-    id: 18,
-    value: "UNITED STATE OF AMERIC",
+    value: "United state of america",
   },
 ];
 export const banks = [
@@ -170,60 +166,48 @@ export const banks = [
 export const gender = [
   {
     id: 1,
-    value: "-- select gender --",
+    value: "Male",
   },
   {
     id: 2,
-    value: "male",
-  },
-  {
-    id: 3,
-    value: "female",
+    value: "Female",
   },
 ];
 
 export const marritalStatus = [
   {
     id: 1,
-    value: "-- select status --",
+    value: "Married",
   },
   {
     id: 2,
-    value: "married",
-  },
-  {
-    id: 3,
-    value: "single",
+    value: "Single",
   },
 ];
 
 export const relationship = [
   {
     id: 1,
-    value: "-- select relationship --",
-  },
-  {
-    id: 2,
     value: "Parent",
   },
   {
-    id: 3,
+    id: 2,
     value: "Subsidiary",
   },
   {
-    id: 4,
+    id: 3,
     value: "Partners",
   },
   {
-    id: 5,
+    id: 4,
     value: "Child",
   },
   {
-    id: 6,
+    id: 5,
     value: "Spouse",
   },
   {
-    id: 7,
+    id: 6,
     value: "Other",
   },
 ];

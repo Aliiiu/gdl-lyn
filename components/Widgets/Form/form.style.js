@@ -70,6 +70,7 @@ export const FormInput = Muistyled(props => (
     borderRadius: 3,
     // padding: "0.8em",
     height: "48px",
+    color: "#24215D",
     backgroundColor: theme.palette.mode === "light" ? "#fcfcfb" : "#2b2b2b",
     transition: theme.transitions.create([
       "border-color",

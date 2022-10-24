@@ -1,6 +1,6 @@
 import { useS3Upload } from "next-s3-upload";
 import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, CSSProperties } from "react";
 import { useForm } from "react-hook-form";
 import { IoCheckmarkCircleSharp, IoCloseOutline } from "react-icons/io5";
 import { VscSaveAs } from "react-icons/vsc";
@@ -9,6 +9,11 @@ import styled from "styled-components";
 import { FormImageField } from "../components/Widgets/Form/Form";
 import { GetStartedWrapper } from "./get-started";
 // window.Buffer = window.Buffer || require("buffer").Buffer;
+import { useRouter } from "next/router";
+import emailjs from "@emailjs/browser";
+import { toast, ToastContainer } from "react-toastify";
+import useLoading from "../hooks/useLoading";
+import ClipLoader from "react-spinners/ClipLoader";
 
 export const CustomImageFile = styled.label`
   display: inline-block;
@@ -50,15 +55,25 @@ export const CustomImageFile = styled.label`
 `;
 
 const FileUpload = () => {
-  const [uploadPayload, setUploadPayload] = useState({
-    passport: "",
-    signature: "",
-    "user-id": "",
-    "utility-bill": "",
-  });
+  const router = useRouter();
+  const [passport, setPassport] = useState();
+  const [signature, setSignature] = useState();
+  const [userId, setUserId] = useState();
+  const [utilityBill, setUtilityBill] = useState();
+  // const [uploadPayload, setUploadPayload] = useState({
+  //   passport: "",
+  //   signature: "",
+  //   "user-id": "",
+  //   "utility-bill": "",
+  // });
   let [imageUrl, setImageUrl] = useState();
   let { FileInput, openFileDialog, uploadToS3 } = useS3Upload();
-
+  const { loading, startLoading, stopLoading } = useLoading();
+  const override = {
+    display: "block",
+    margin: "0 auto",
+    height: "8px",
+  };
   let handleFileChange = async file => {
     let { url } = await uploadToS3(file);
     console.log(url.replace("gdl-luxury-yield-note.", ""));
@@ -68,32 +83,22 @@ const FileUpload = () => {
 
   const uploadDocFile = type => async file => {
     try {
+      let obj = {};
       let { url } = await uploadToS3(file);
-      // console.log(url);
-      // alert("loading...");
-      if (url && type === "passport") {
-        setUploadPayload({
-          ...uploadPayload,
-          passport: url.replace("gdl-luxury-yield-note.", ""),
-        });
+      const new_url = url.replace("gdl-luxury-yield-note.", "");
+      obj = { type, url };
+
+      if (type == "passport") {
+        setPassport(new_url);
       }
-      if (url && type === "signature") {
-        setUploadPayload({
-          ...uploadPayload,
-          signature: url.replace("gdl-luxury-yield-note.", ""),
-        });
+      if (type == "signature") {
+        setSignature(new_url);
       }
-      if (url && type === "user-id") {
-        setUploadPayload({
-          ...uploadPayload,
-          "user-id": url.replace("gdl-luxury-yield-note.", ""),
-        });
+      if (type == "user-id") {
+        setUserId(new_url);
       }
-      if (url && type === "utility-bill") {
-        setUploadPayload({
-          ...uploadPayload,
-          "utility-bill": url.replace("gdl-luxury-yield-note.", ""),
-        });
+      if (type == "utility-bill") {
+        setUtilityBill(new_url);
       }
     } catch (error) {
       console.error(error);
@@ -102,16 +107,43 @@ const FileUpload = () => {
   const { handleSubmit, formState, register, control } = useForm({
     mode: "onChange",
   });
+
+  useEffect(() => {
+    console;
+  });
   const onSubmit = data => {
-    data.user_id = uploadPayload["user-id"];
-    data.passport = uploadPayload.passport;
-    data.signature = uploadPayload.signature;
-    data.utility_bill = uploadPayload["utility-bill"];
-    // console.log(JSON.stringify(data));
-    console.log(uploadPayload);
+    startLoading();
+    const formData = JSON.parse(localStorage.getItem("formData")) || {};
+    // console.log(formData);
+    // console.log({ passport, signature, userId, utilityBill });
+    console.log({ ...formData, passport, signature, userId, utilityBill });
+
+    emailjs
+      .send(
+        "service_9z472fn",
+        "template_04ppk2s",
+        { ...formData, passport, signature, userId, utilityBill },
+        "45DpXFvmZLKlgyjgW"
+      )
+      .then(
+        result => {
+          toast.success("Data sent successfully");
+          console.log(result);
+        },
+        error => {
+          toast.error(error.text);
+          console.error(error);
+        }
+      )
+      .finally(() => {
+        stopLoading();
+        localStorage.clear();
+        router.push("/");
+      });
   };
   return (
     <GetStartedWrapper>
+      <ToastContainer />
       <div className="container  mx-auto">
         <div className=" px-5 py-6">
           <div className="flex justify-center">
@@ -170,64 +202,13 @@ const FileUpload = () => {
                 uploadFile={uploadDocFile("utility-bill")}
                 // {...register("utility-bill", { required: true })}
               />
-              {/* <div className="border border-[#e8ebed]">
-                <div className="p-4 border-b border-[#e8ebed]">Signature</div>
-                <div className="flex flex-col gap-2">
-                  <CustomImageFile htmlFor="photo-upload">
-                    <div className="border-2 border-gray-400 w-[300px] h-[191px] flex justify-center items-center p-5">
-                      {signatureDataURL ? (
-                        <div className="flex flex-col gap-3">
-                          <div className="relative rounded-2xl overflow-hidden shadow-sm w-[150px] h-[120px]">
-                            <Image
-                              src={signatureDataURL}
-                              alt=""
-                              layout="fill"
-                              objectFit="contain"
-                            />
-                          </div>
-                          <span
-                            onClick={() => setSignatureDataURL("")}
-                            className="text-red-800 text-center text-xs"
-                          >
-                            Remove image
-                          </span>
-                        </div>
-                      ) : (
-                        <span className="text-gray-400 text-sm text-center max-w-[200px]">
-                          Drop files here or click to upload.
-                        </span>
-                      )}
-                    </div>
-                    <input
-                      id="photo-upload"
-                      accept=".png, .jpeg, .jpg"
-                      name="photo-upload"
-                      type={"file"}
-                      ref={signatureFileRef}
-                      onChange={signatureHandler}
-                      className="dp_wrapper"
-                      multiple
-                    />
-                  </CustomImageFile>
-                  {error && (
-                    <h5 className="text-red-500 ml-[90px] text-sm">{error}</h5>
-                  )}
-                  <span className="text-gray-400 font-thin text-xs">
-                    Accepted file type: .PNG .JPG, .JPEG
-                  </span>
-                  <span className="text-gray-400 font-thin text-xs">
-                    {" "}
-                    Max. size : 250KB
-                  </span>
-                </div>
-              </div> */}
             </div>
 
             <div className="flex border-b border-[#e8ebed] py-5 justify-end">
               <div className="flex gap-2">
                 <button
                   type="submit"
-                  className="bg-[#992333] px-4 flex py-2 items-center gap-1 rounded-[14px] text-xl font-semibold"
+                  className="bg-[#992333] px-4 flex py-2 items-center cursor-pointer gap-1 rounded-[14px] text-xl font-semibold"
                 >
                   <span className="md:text-sm text-white font-thin text-sm">
                     Cancel
@@ -238,14 +219,24 @@ const FileUpload = () => {
                 </button>
                 <button
                   type="submit"
-                  className="bg-[#992333] px-4 flex py-2 items-center gap-1 rounded-[14px] text-xl font-semibold"
+                  disabled={loading}
+                  className="bg-[#992333] px-4 flex py-2 min-w-[80px] items-center gap-1 cursor-pointer disabled:bg-opacity-50 disabled:cursor-not-allowed rounded-[14px] text-xl font-semibold"
                 >
-                  <span className="md:text-sm text-white font-thin text-sm">
-                    Submit
-                  </span>
-                  <div className="w-4 h-4 flex justify-center items-center rounded-full border-white border">
-                    <VscSaveAs color="#ffffff" className="text-md font-thin" />
-                  </div>
+                  {loading ? (
+                    <ClipLoader className="mx-auto" size={20} color="#FFFFFF" />
+                  ) : (
+                    <>
+                      <span className="md:text-sm text-white font-thin text-sm">
+                        Submit
+                      </span>
+                      <div className="w-4 h-4 flex justify-center items-center rounded-full border-white border">
+                        <VscSaveAs
+                          color="#ffffff"
+                          className="text-md font-thin"
+                        />
+                      </div>
+                    </>
+                  )}
                 </button>
               </div>
             </div>

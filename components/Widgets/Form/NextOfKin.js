@@ -74,7 +74,7 @@ const NextOfKin = ({ control, formState, register }) => {
             {...register("maritalStatus", { required: true })}
           />
         </div>
-        <div className="grid gap-3 lg:grid-cols-2">
+        <div className="grid gap-3 lg:grid-cols-3">
           <DropdownField
             name="country"
             age={age}
@@ -84,6 +84,15 @@ const NextOfKin = ({ control, formState, register }) => {
             control={control}
             error={formState.errors.country}
             {...register("country", { required: true })}
+          />
+          <FormTextField
+            name="state"
+            multiline
+            maxRows={4}
+            label="State"
+            control={control}
+            error={formState.errors.state}
+            {...register("state")}
           />
           <FormTextField
             name="city"

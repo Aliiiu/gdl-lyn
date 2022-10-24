@@ -1,4 +1,5 @@
 import {
+  createTheme,
   FormControl,
   InputBase,
   InputLabel,
@@ -6,6 +7,7 @@ import {
   Select,
   TextareaAutosize,
   TextField,
+  ThemeProvider,
 } from "@mui/material";
 import { styled } from "@mui/system";
 import {
@@ -17,7 +19,7 @@ import {
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import Image from "next/image";
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Controller } from "react-hook-form";
 import { CustomImageFile } from "../../../pages/file-upload";
 import { getBase64 } from "../../utils/helper";
@@ -108,7 +110,6 @@ export const FormImageField = React.forwardRef(
           const base64 = await getBase64(event.target.files[0]);
 
           uploadFile(event.target.files[0]);
-          // console.log(event.target.files[0]);
 
           setImage(base64);
           onChange(event);
@@ -117,6 +118,7 @@ export const FormImageField = React.forwardRef(
         }
       }
     }, []);
+
     return (
       <>
         <div className=" border border-[#e8ebed]">
@@ -205,18 +207,6 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
     padding: "10px 26px 10px 12px",
     // transition: theme.transitions.create(["border-color", "box-shadow"]),
     // Use the system font instead of the default Roboto font.
-    fontFamily: [
-      "-apple-system",
-      "BlinkMacSystemFont",
-      '"Segoe UI"',
-      "Roboto",
-      '"Helvetica Neue"',
-      "Arial",
-      "sans-serif",
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(","),
     "&:focus": {
       borderRadius: 4,
       borderColor: "#80bdff",
@@ -224,6 +214,119 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
+const CustomSelect = styled(Select)(({ theme, props }) => ({
+  "& .MuiOutlinedInput-notchedOutline": {
+    border: `1px solid #e8ebed`,
+    "&.Mui-focused": {
+      backgroundColor: "transparent",
+      // boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 2px`,
+      borderColor: "#A23437",
+    },
+  },
+  "& .MuiFormControl-root": {
+    "& .MuiInput-underline:hover:not(.Mui-disabled):before": {
+      borderColor: "red",
+    },
+  },
+  "&:hover": {
+    backgroundColor: "transparent",
+    borderColor: "red",
+  },
+}));
+
+const theme = createTheme({
+  components: {
+    MuiFormLabel: {
+      styleOverrides: {
+        root: {
+          // ".MuiInputLabel-root": {
+          //   color: "red",
+          //   backgroundColor: "black",
+          //   "&:active": {
+          //     color: "red",
+          //   },
+          // },
+          backgroundColor: "white",
+          color: "#24215D",
+          paddingLeft: "10px",
+          paddingRight: "10px",
+          borderRadius: 3,
+          "&:active": {
+            color: "#24215D",
+          },
+          "&:focused": {
+            color: "#24215D",
+          },
+        },
+      },
+    },
+    MuiSelect: {
+      styleOverrides: {
+        root: {
+          // "&.input-success": {
+          //   input: {
+          //     borderColor: theme.palette.success.dark,
+          //   },
+          // },
+          // "&.Mui-error": {
+          //   ".MuiSelect-select": {
+          //     border: `2px solid ${theme.palette.error.dark}`,
+          //   },
+          // },
+          ".MuiSelect-select": {
+            backgroundColor: "transparent",
+            border: `1px solid #e8ebed`,
+            borderRadius: 3,
+            padding: 0,
+            paddingRight: 23,
+            paddingLeft: 13,
+            height: "48px !important",
+            fontSize: 14,
+            width: "100% !important",
+            display: "flex",
+            alignItems: "center",
+            color: "#24215D",
+            "&:hover": {
+              border: `1px solid #A23437`,
+            },
+            "&:active": {
+              border: `1px solid #A23437`,
+              borderRadius: 3,
+              backgroundColor: "transparent",
+            },
+            "&:focus": {
+              border: `1px solid #A23437`,
+              borderRadius: 3,
+              backgroundColor: "transparent",
+            },
+            "&.Mui-disabled": {
+              border: `2px solid grey`,
+              backgroundColor: "grey",
+              opacity: 0.6,
+            },
+            "&[aria-expanded=true]": {
+              border: `1px solid #A23437`,
+            },
+          },
+          // ".MuiSelect-icon": {
+          //   right: 12,
+          //   path: {
+          //     fill: theme.palette.utility.extradark,
+          //   },
+          //   "&.Mui-disabled": {
+          //     path: {
+          //       fill: theme.palette.utility.main,
+          //     },
+          //   },
+          // },
+          fieldset: {
+            display: "none",
+          },
+        },
+      },
+    },
+  },
+});
 
 export const DropdownField = React.forwardRef(
   (
@@ -231,40 +334,60 @@ export const DropdownField = React.forwardRef(
     ref
   ) => {
     const [selectval, setSelectval] = React.useState("");
+
     return (
       <>
-        <Controller
-          name={name}
-          control={control}
-          render={({ field: { onChange } }) => (
-            <div className="flex flex-col">
-              <FormControl fullWidth varaint="filled" ref={ref}>
-                <InputLabel id={name}>{label}</InputLabel>
-                <Select
-                  labelId={name}
-                  id={name}
-                  value={selectval}
-                  label={label}
-                  sx={{ height: "48px" }}
-                  // input={<BootstrapInput />}
-                  onChange={e => {
-                    onChange(e.target.value);
-                    setSelectval(e.target.value);
-                  }}
-                >
-                  {selectValue.map(item => (
-                    <MenuItem key={item.id} value={item.value}>
-                      {item.value}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-              {error && (
-                <h5 className="text-red-500 text-xs">Enter your {label}</h5>
-              )}
-            </div>
-          )}
-        />
+        <ThemeProvider theme={theme}>
+          <Controller
+            name={name}
+            control={control}
+            render={({ field: { onChange } }) => (
+              <div className="flex flex-col">
+                <FormControl fullWidth ref={ref}>
+                  {selectval ? <InputLabel id={name}>{label}</InputLabel> : ""}
+                  <Select
+                    labelId={name}
+                    id={name}
+                    value={selectval}
+                    label={selectval ? label : ""}
+                    sx={{ height: "48px" }}
+                    // input={<BootstrapInput />}
+                    onChange={e => {
+                      onChange(e.target.value);
+                      setSelectval(e.target.value);
+                    }}
+                    displayEmpty
+                    renderValue={value =>
+                      value ? (
+                        value
+                      ) : (
+                        <em
+                          className="text-sm text-[#24215D] lowercase"
+                          style={{ textDecoration: "lowerCase" }}
+                        >
+                          --select {label}--
+                        </em>
+                      )
+                    }
+                  >
+                    {selectValue.map(item => (
+                      <MenuItem
+                        sx={{ fontSize: "14px" }}
+                        key={item.id}
+                        value={item.value}
+                      >
+                        {item.value}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+                {error && (
+                  <h5 className="text-red-500 text-xs">Enter your {label}</h5>
+                )}
+              </div>
+            )}
+          />
+        </ThemeProvider>
       </>
     );
   }
@@ -276,6 +399,24 @@ export const DatePickerField = React.forwardRef(
     const handleDateChange = newValue => {
       setValue(newValue);
     };
+
+    const CustomDatePicker = styled(DatePicker)(({ theme, props }) => ({
+      "& .MuiOutlinedInput-notchedOutline": {
+        border: `1px solid #e8ebed`,
+        "&:hover": {
+          backgroundColor: "transparent",
+          borderColor: "#A23437",
+        },
+        "&.Mui-focused": {
+          backgroundColor: "transparent",
+          // boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 2px`,
+          borderColor: "#A23437",
+        },
+      },
+      // "& .MuiFormControl-root": {
+      //   border: 0,
+      // },
+    }));
     return (
       <>
         <Controller
@@ -285,7 +426,7 @@ export const DatePickerField = React.forwardRef(
             <div className="flex flex-col">
               <LocalizationProvider ref={ref} dateAdapter={AdapterDayjs}>
                 <>
-                  <DatePicker
+                  <CustomDatePicker
                     label={label}
                     openTo="year"
                     views={["year", "month", "day"]}
@@ -307,10 +448,10 @@ export const DatePickerField = React.forwardRef(
                             color: "#24215D",
                           },
                           "& .MuiOutlinedInput-root": {
-                            border: `1px solid #e8ebed`,
+                            border: 0,
                             height: "48px",
                             // "&.Mui-focused": {
-                            //   backgroundColor: "transparent",
+                            //   backgroundColor: ""transparent"",
                             //   borderColor: "#A23437",
                             // },
                           },

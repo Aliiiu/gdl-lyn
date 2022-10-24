@@ -19,6 +19,7 @@ const merits = [
         <BsArrowRight color="#E6278E" />
       </div>
     ),
+    actionContent: "Great returns",
     content:
       "For a period of 3 months, Finance an investment that enables you to get a lavish return as high as 15%.",
   },
@@ -35,6 +36,7 @@ const merits = [
         <BsArrowRight color="#3196FE" />
       </div>
     ),
+    actionContent: "High Rates",
     content:
       "The Note offers you three (3) capital levels, starting from a minimum of N5,000,000.",
   },
@@ -51,6 +53,7 @@ const merits = [
         <BsArrowRight color="#003399" />
       </div>
     ),
+    actionContent: "Quick Payouts",
     content:
       "Take charge of the frequency of your interest payments, monthly, or at the end of the investment tenor (3 months).",
   },
@@ -67,6 +70,7 @@ const merits = [
         <BsArrowRight color="#003399" />
       </div>
     ),
+    actionContent: "Enjoy Great Perks",
     content:
       "Start enjoying perks from the moment you sign up until the maturity of your investment.",
   },
@@ -108,7 +112,7 @@ const Merit = () => {
               </div>
               <div className="subtitle flex items-center gap-3">
                 {merit.action}
-                Learn More
+                {merit.actionContent}
               </div>
             </div>
           </StyledCard>

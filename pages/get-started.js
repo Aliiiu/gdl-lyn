@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import BioDataForm from "../components/Widgets/Form/BioDataForm";
@@ -6,8 +6,7 @@ import NextOfKin from "../components/Widgets/Form/NextOfKin";
 import BankDetails from "../components/Widgets/Form/BankDetails";
 import { BsArrowRightShort } from "react-icons/bs";
 import { IoCloseOutline } from "react-icons/io5";
-import emailjs from "@emailjs/browser";
-import { toast, ToastContainer } from "react-toastify";
+import { useRouter } from "next/router";
 
 export const GetStartedWrapper = styled.div`
   background-image: url("../assets/GDL_BI.png");
@@ -80,32 +79,38 @@ export const GetStartedWrapper = styled.div`
     }
   }
 `;
-
 const GetStarted = () => {
   const { handleSubmit, formState, register, control } = useForm({
     mode: "onChange",
   });
+  let navigate = useRouter();
   const onSubmit = data => {
     console.log(data);
     console.log(data.firstname);
+    localStorage.setItem("formData", JSON.stringify(data));
     // const payload = JSON.parse(data);
-    emailjs
-      .send("service_9z472fn", "template_04ppk2s", data, "45DpXFvmZLKlgyjgW")
-      .then(
-        result => {
-          toast.success(result.text);
-          console.log(result);
-        },
-        error => {
-          toast.error(error.text);
-          console.error(error);
-        }
-      );
+    // emailjs
+    //   .send("service_9z472fn", "template_04ppk2s", data, "45DpXFvmZLKlgyjgW")
+    //   .then(
+    //     result => {
+    //       toast.success(result.text);
+    //       navigate.push(
+    //         { pathname: "/file-upload", query: data },
+    //         "/file-upload"
+    //       );
+    //       console.log(result);
+    //     },
+    //     error => {
+    //       toast.error(error.text);
+    //       console.error(error);
+    //     }
+    //   );
+
+    navigate.push("/file-upload");
   };
 
   return (
     <GetStartedWrapper>
-      <ToastContainer />
       <div className="container  mx-auto">
         <div className=" px-5 py-6">
           <div className="flex justify-center">
