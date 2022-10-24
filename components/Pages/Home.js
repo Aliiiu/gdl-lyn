@@ -1,10 +1,4 @@
 import React from "react";
-import playstore from "../../assets/Images/PlayStore.png";
-import appstore from "../../assets/Images/AppStore.png";
-import arrow from "../../assets/Images/Arrow.png";
-import person from "../../assets/Images/Person.png";
-import bars from "../../assets/Images/Bars.png";
-import coins from "../../assets/Images/Coins.png";
 import bgHero from "../../assets/Images/man.png";
 import { AppButton } from "../Widgets/Button/AppButton";
 import { StoreButton, Content } from "../Widgets/Button/StoreButton";
@@ -44,11 +38,11 @@ const Home = () => {
         </h5> */}
         <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 px-14 sm:px-0 md:gap-6 py-7 xl:py-10">
           <StoreButton
-            className="px-5 py-3 max-w-max mx-auto"
+            className="px-5 py-3 flex-1 max-w-max mx-auto md:mx-0"
             name={<Content type="PlayStore" img={PlayStore} />}
           />
           <StoreButton
-            className="px-5 py-3 max-w-max mx-auto"
+            className="px-5 py-3 flex-1 max-w-max mx-auto md:mx-0"
             name={<Content type="AppStore" img={AppStore} />}
           />
         </div>

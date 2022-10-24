@@ -12,9 +12,13 @@ export const GetStartedWrapper = styled.div`
   background-image: url("../assets/GDL_BI.png");
   background-size: cover;
   .container {
-    max-width: 900px;
-    padding: 2em;
+    padding: 1em;
+    width: 100%;
     ${"" /* background-color: lightBlue; */}
+    @media only screen and (min-width: 1024px) {
+      max-width: 900px;
+      padding: 2em;
+    }
   }
   .form {
     border: 1px solid #e8ebed;
@@ -112,7 +116,7 @@ const GetStarted = () => {
   return (
     <GetStartedWrapper>
       <div className="container  mx-auto">
-        <div className=" px-5 py-6">
+        <div className="px-5 py-6">
           <div className="flex justify-center">
             <div className="flex w-full justify-center items-center">
               <span className="w-7 h-7 rounded-full bg-[#E8EbEd]"></span>

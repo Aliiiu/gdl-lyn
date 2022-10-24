@@ -60,6 +60,7 @@ const FileUpload = () => {
   const [signature, setSignature] = useState();
   const [userId, setUserId] = useState();
   const [utilityBill, setUtilityBill] = useState();
+  const [uploadData, setUploadData] = useState([]);
   // const [uploadPayload, setUploadPayload] = useState({
   //   passport: "",
   //   signature: "",
@@ -69,11 +70,6 @@ const FileUpload = () => {
   let [imageUrl, setImageUrl] = useState();
   let { FileInput, openFileDialog, uploadToS3 } = useS3Upload();
   const { loading, startLoading, stopLoading } = useLoading();
-  const override = {
-    display: "block",
-    margin: "0 auto",
-    height: "8px",
-  };
   let handleFileChange = async file => {
     let { url } = await uploadToS3(file);
     console.log(url.replace("gdl-luxury-yield-note.", ""));

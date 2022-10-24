@@ -37,7 +37,7 @@ const Contact = () => {
             Growth & Development Limited
           </h2>
           <hr className="w-full border-gray-400 mt-4 mb-6 " />
-          <p className="text-sm text-left max-w-[250px] text-black text-opacity-50 pt-2">
+          <p className="text-sm text-left w-full md:max-w-[250px] text-black text-opacity-50 pt-2">
             Lagos Office : No 1, Afolabi Lesi Street, Ilupeju, Lagos | Abuja
             Office : St James House (2nd floor), Plot 1109/No. 167 Cadastral
             Zone A08 Ademola Adetokunbo Crescent, Wuse ll, Abuja- Nigeria
@@ -46,7 +46,7 @@ const Contact = () => {
             <a href="tel:+2347054435000">+2348029990971,</a>
             <a href="tel:+2349058179336">+2348032491428</a>
           </div>
-          <div className="flex items-center gap-2 mr-7 pt-2 lg:pt-5">
+          <div className="flex items-center justify-between w-full gap-2 mr-7 pt-4 lg:pt-5">
             <Wobble>
               {/* <CustomImage
                 src={inst}

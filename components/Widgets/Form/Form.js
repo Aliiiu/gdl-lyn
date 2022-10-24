@@ -350,7 +350,7 @@ export const DropdownField = React.forwardRef(
                     id={name}
                     value={selectval}
                     label={selectval ? label : ""}
-                    sx={{ height: "48px" }}
+                    sx={{ height: "48px", width: "100%" }}
                     // input={<BootstrapInput />}
                     onChange={e => {
                       onChange(e.target.value);
@@ -362,7 +362,7 @@ export const DropdownField = React.forwardRef(
                         value
                       ) : (
                         <em
-                          className="text-sm text-[#24215D] lowercase"
+                          className="text-sm text-[#24215D] max-w-[100px] sm:max-w-fit lowercase"
                           style={{ textDecoration: "lowerCase" }}
                         >
                           --select {label}--

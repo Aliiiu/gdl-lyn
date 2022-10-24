@@ -10,5 +10,8 @@ export const PageContent = styled.div`
       width: 100%; */
       }
     }
+    @media screen only (max-width: 768px) {
+      width: 100%;
+    }
   }
 `;
