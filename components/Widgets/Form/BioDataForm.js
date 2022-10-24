@@ -6,7 +6,12 @@ import {
   gender,
   marritalStatus,
 } from "../../../constants/selectValue";
-import { DatePickerField, DropdownField, FormTextField } from "./Form";
+import {
+  DatePickerField,
+  DropdownField,
+  FormTextField,
+  TextAreaField,
+} from "./Form";
 
 const BioDataForm = ({ control, formState, register }) => {
   const [age, setAge] = React.useState("");
@@ -55,8 +60,6 @@ const BioDataForm = ({ control, formState, register }) => {
         <div className="grid gap-3 md:grid-cols-3">
           <DropdownField
             name="gender"
-            age={age}
-            handleChange={handleChange}
             label="Gender"
             selectValue={gender}
             control={control}
@@ -73,8 +76,6 @@ const BioDataForm = ({ control, formState, register }) => {
           />
           <DropdownField
             name="maritalStatus"
-            age={age}
-            handleChange={handleChange}
             label="Marital Status"
             selectValue={marritalStatus}
             control={control}
@@ -133,19 +134,13 @@ const BioDataForm = ({ control, formState, register }) => {
           />
         </div>
         <div>
-          <TextareaAutosize
-            aria-label="minimum height"
-            minRows={5}
-            placeholder="Address of Residence"
-            name="address"
+          <TextAreaField
+            name="addressOfResidence"
+            label={"address of residence"}
             control={control}
-            error={formState.errors.address}
-            {...register("address", { required: true })}
-            className="mytext w-full focus:outline-[#A23437]"
+            error={formState.errors.addressOfResidence}
+            {...register("addressOfResidence", { required: true })}
           />
-          {formState.errors.address && (
-            <h5 className="text-red-500 text-xs">Enter an Address</h5>
-          )}
         </div>
       </div>
     </div>

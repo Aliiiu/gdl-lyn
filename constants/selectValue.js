@@ -72,6 +72,100 @@ export const country = [
     value: "UNITED STATE OF AMERIC",
   },
 ];
+export const banks = [
+  {
+    id: 1,
+    value: "-- select country --",
+  },
+  {
+    id: 2,
+    value: "Access Bank",
+  },
+  {
+    id: 3,
+    value: "Citibank Nigeria",
+  },
+  {
+    id: 4,
+    value: "Ecobank Nigeria",
+  },
+  {
+    id: 5,
+    value: "Enterprise Bank",
+  },
+  {
+    id: 6,
+    value: "Fidelity Bank",
+  },
+  {
+    id: 7,
+    value: "First City Monument Bank",
+  },
+  {
+    id: 8,
+    value: "Guaranty Trust Bank",
+  },
+  {
+    id: 9,
+    value: "Heritage Bank",
+  },
+  {
+    id: 10,
+    value: "Jaiz Bank Plc",
+  },
+  {
+    id: 11,
+    value: "Keystone Bank",
+  },
+  {
+    id: 12,
+    value: "Mainstreet Bank",
+  },
+  {
+    id: 13,
+    value: "Polaris Bank Ltd",
+  },
+  {
+    id: 14,
+    value: "Skye Bank",
+  },
+  {
+    id: 15,
+    value: "Stanbic IBTC Bank",
+  },
+  {
+    id: 16,
+    value: "Standard Chartered Bank Nigeria",
+  },
+  {
+    id: 17,
+    value: "Sterling Bank",
+  },
+  {
+    id: 18,
+    value: "Suntrust Bank Nigeria",
+  },
+  {
+    id: 19,
+    value: "Union Bank",
+  },
+  {
+    id: 20,
+    value: "United Bank For Africa",
+  },
+  {
+    id: 21,
+    value: "Unity bank",
+  },
+  {
+    id: 22,
+    value: "Wema Bank",
+  },
+  {
+    id: 23,
+    value: "Zenith Bank",
+  },
+];
 
 export const gender = [
   {

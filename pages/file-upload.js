@@ -1,3 +1,4 @@
+import { useS3Upload } from "next-s3-upload";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -55,44 +56,59 @@ const FileUpload = () => {
     "user-id": "",
     "utility-bill": "",
   });
+  let [imageUrl, setImageUrl] = useState();
+  let { FileInput, openFileDialog, uploadToS3 } = useS3Upload();
 
-  const configOption = {
-    keyPrefix: "uploads/",
-    bucketName: "gdl-fintechapp",
-    region: "us-east-2",
-    accessKeyId: "AKIAS5WLBGBNY2H27RU3",
-    secretAccessKey: "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",
-    successActionStatus: 201,
+  let handleFileChange = async file => {
+    let { url } = await uploadToS3(file);
+    console.log(url.replace("gdl-luxury-yield-note.", ""));
+    // console.log(JSON.stringify(response));
+    setImageUrl(url.replace("gdl-luxury-yield-note.", ""));
   };
 
-  // const uploadDocFile = type => async file => {
-  //   try {
-  //     const file_upload = await uploadFile(file, configOption);
-  //     alert("loading...");
-  //     if (file_upload && type == "passport") {
-  //       setUploadPayload({ ...uploadPayload, passport: file_upload.location });
-  //     }
-  //     if (file_upload && type == "signature") {
-  //       setUploadPayload({ ...uploadPayload, signature: file_upload.location });
-  //     }
-  //     if (file_upload && type == "user-id") {
-  //       setUploadPayload({ ...uploadPayload, "user-id": file_upload.location });
-  //     }
-  //     if (file_upload && type == "utility-bill") {
-  //       setUploadPayload({
-  //         ...uploadPayload,
-  //         "utility-bill": file_upload.location,
-  //       });
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
+  const uploadDocFile = type => async file => {
+    try {
+      let { url } = await uploadToS3(file);
+      // console.log(url);
+      // alert("loading...");
+      if (url && type === "passport") {
+        setUploadPayload({
+          ...uploadPayload,
+          passport: url.replace("gdl-luxury-yield-note.", ""),
+        });
+      }
+      if (url && type === "signature") {
+        setUploadPayload({
+          ...uploadPayload,
+          signature: url.replace("gdl-luxury-yield-note.", ""),
+        });
+      }
+      if (url && type === "user-id") {
+        setUploadPayload({
+          ...uploadPayload,
+          "user-id": url.replace("gdl-luxury-yield-note.", ""),
+        });
+      }
+      if (url && type === "utility-bill") {
+        setUploadPayload({
+          ...uploadPayload,
+          "utility-bill": url.replace("gdl-luxury-yield-note.", ""),
+        });
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
   const { handleSubmit, formState, register, control } = useForm({
     mode: "onChange",
   });
   const onSubmit = data => {
-    alert(JSON.stringify(data));
+    data.user_id = uploadPayload["user-id"];
+    data.passport = uploadPayload.passport;
+    data.signature = uploadPayload.signature;
+    data.utility_bill = uploadPayload["utility-bill"];
+    // console.log(JSON.stringify(data));
+    console.log(uploadPayload);
   };
   return (
     <GetStartedWrapper>
@@ -112,18 +128,30 @@ const FileUpload = () => {
             onSubmit={handleSubmit(onSubmit)}
           >
             <div className="grid gap-4 md:grid-cols-2">
+              {/* <div>
+                <FileInput onChange={handleFileChange} />
+
+                <button onClick={openFileDialog}>Upload file</button>
+
+                {imageUrl && (
+                  <img
+                    src={imageUrl}
+                    className="border border-green-200 w-full h-full"
+                  />
+                )}
+              </div> */}
               <FormImageField
                 label={"Passport"}
                 name={"passport"}
                 register={register}
-                // uploadFile={uploadDocFile("passport")}
+                uploadFile={uploadDocFile("passport")}
                 // {...register("passport", { required: true })}
               />
               <FormImageField
                 label={"Signature"}
                 name={"signature"}
                 register={register}
-                // uploadFile={uploadDocFile("signature")}
+                uploadFile={uploadDocFile("signature")}
                 // {...register("signature", { required: true })}
               />
               <FormImageField
@@ -131,7 +159,7 @@ const FileUpload = () => {
                 name={"user-id"}
                 register={register}
                 size={"1MB"}
-                // uploadFile={uploadDocFile("user-id")}
+                uploadFile={uploadDocFile("user-id")}
                 // {...register("user-id", { required: true })}
               />
               <FormImageField
@@ -139,7 +167,7 @@ const FileUpload = () => {
                 name={"utility-bill"}
                 register={register}
                 size={"1MB"}
-                // uploadFile={uploadDocFile("utility-bill")}
+                uploadFile={uploadDocFile("utility-bill")}
                 // {...register("utility-bill", { required: true })}
               />
               {/* <div className="border border-[#e8ebed]">

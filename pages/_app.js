@@ -1,7 +1,6 @@
 import Topbar from "../components/TopNav/Topbar";
 import "../styles/globals.css";
-import { useEffect } from "react";
-import Head from "next/head";
+import "react-toastify/dist/ReactToastify.css";
 
 function MyApp({ Component, pageProps }) {
   return (

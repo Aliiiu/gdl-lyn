@@ -10,6 +10,7 @@ import img from "../../assets/Images/gdl-logo.png";
 import { useTheme } from "next-themes";
 import { IoMdClose } from "react-icons/io";
 import { TiThMenu } from "react-icons/ti";
+import { useRouter } from "next/router";
 
 const navigation = [
   { name: "Home", href: "home", current: true },
@@ -22,6 +23,9 @@ const Topbar2 = props => {
   const [mode, setMode] = useState(false);
   const [open, setOpen] = useState(false);
   const { theme, setTheme } = useTheme();
+  const router = useRouter();
+  console.log(router.pathname);
+  const showNavBar = router.pathname === "/" ? true : false;
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
@@ -31,58 +35,67 @@ const Topbar2 = props => {
       <div className="bg-transparent lg:w-5/6 xl:w-4/6 w-full animate-fade-in">
         <nav className=" py-2.5 z-20 top-0 left-0">
           <div className="container flex flex-wrap justify-between items-center mx-auto">
-            <Link href="/">
-              <a>
-                <CustomImage
-                  src={img}
-                  className="w-[40px] h-[40px] lg:w-[70px] lg:h-[70px]"
-                />
-              </a>
-            </Link>
-            <div className="flex md:order-2 justify-start">
-              <div className="hidden md:block">
-                <AppButton
-                  name="Get Started"
-                  className="bg-black px-6 py-3 text-md font-semibold"
-                />
-              </div>
-              <button
-                data-collapse-toggle="navbar-sticky"
-                type="button"
-                className="inline-flex items-center pr-3 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none"
-                aria-controls="navbar-sticky"
-                aria-expanded="false"
-                onClick={() => setOpen(!open)}
-              >
-                <span className="sr-only">Open main menu</span>
-                {!open ? <TiThMenu size={25} /> : <IoMdClose size={25} />}
-              </button>
-            </div>
             <div
-              className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1"
-              id="navbar-sticky"
+              className={`${showNavBar ? "" : "flex justify-center w-full"}`}
             >
-              <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-light md:border-0 md:bg-white text-gray-500">
-                {navigation.map(item => (
-                  <Linker
-                    key={item.name}
-                    to={item.href}
-                    activeClass="active"
-                    spy={true}
-                    smooth={true}
-                    offset={-70}
-                    duration={1000}
-                    className={classNames(
-                      item.current ? "text-white link-text" : "text-gray-300",
-                      "px-3 py-2 rounded-md text-lg font-medium"
-                    )}
-                    aria-current={item.current ? "page" : undefined}
-                  >
-                    {item.name}
-                  </Linker>
-                ))}
-              </ul>
+              <Link href="/">
+                <a>
+                  <CustomImage
+                    src={img}
+                    className="w-[40px] h-[40px] lg:w-[70px] lg:h-[70px]"
+                  />
+                </a>
+              </Link>
             </div>
+            {showNavBar && (
+              <div className="flex md:order-2 justify-start">
+                <div className="hidden md:block">
+                  <AppButton
+                    name="Get Started"
+                    className="bg-black px-6 py-3 text-md font-semibold"
+                  />
+                </div>
+                <button
+                  data-collapse-toggle="navbar-sticky"
+                  type="button"
+                  className="inline-flex items-center pr-3 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none"
+                  aria-controls="navbar-sticky"
+                  aria-expanded="false"
+                  onClick={() => setOpen(!open)}
+                >
+                  <span className="sr-only">Open main menu</span>
+                  {!open ? <TiThMenu size={25} /> : <IoMdClose size={25} />}
+                </button>
+              </div>
+            )}
+
+            {showNavBar && (
+              <div
+                className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1"
+                id="navbar-sticky"
+              >
+                <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-light md:border-0 md:bg-white text-gray-500">
+                  {navigation.map(item => (
+                    <Linker
+                      key={item.name}
+                      to={item.href}
+                      activeClass="active"
+                      spy={true}
+                      smooth={true}
+                      offset={-70}
+                      duration={1000}
+                      className={classNames(
+                        item.current ? "text-white link-text" : "text-gray-300",
+                        "px-3 py-2 rounded-md text-lg font-medium"
+                      )}
+                      aria-current={item.current ? "page" : undefined}
+                    >
+                      {item.name}
+                    </Linker>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
           <Transition
             show={open}

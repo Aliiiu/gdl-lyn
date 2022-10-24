@@ -1,14 +1,15 @@
+import Link from "next/link";
 import React from "react";
 import { Button } from "./appbutton.style";
-import { Link } from "react-scroll";
+// import { Link } from "react-scroll";
 
 export const AppButton = ({ onPress, loading, ...props }) => (
-  <Link to="get-started" spy={true} smooth={true} offset={-70} duration={1000}>
+  <Link href={"/get-started"}>
     <Button
       {...props}
       type="submit"
       className={`transition ease-in-out duration-700 ${
-        props.className || "rounded-lg px-4 py-3 bg-[#992333] text-white"
+        props.className || " px-4 py-3 bg-[#992333] text-white"
       }`}
       onClick={onPress}
       disabled={props.disabled}

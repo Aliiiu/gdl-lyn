@@ -13,27 +13,7 @@ const security = [
   },
   {
     id: 4,
-    feature: "lots of exiciting perks",
-  },
-  {
-    id: 5,
-    feature: "Easy control",
-  },
-  {
-    id: 6,
-    feature: "Guaranted safety",
-  },
-  {
-    id: 7,
-    feature: "100% Trusted",
-  },
-  {
-    id: 8,
-    feature: "Easy Accessable",
-  },
-  {
-    id: 9,
-    feature: "Online Banking",
+    feature: "lots more",
   },
 ];
 

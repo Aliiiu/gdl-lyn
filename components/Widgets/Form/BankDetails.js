@@ -2,6 +2,7 @@ import { TextareaAutosize } from "@mui/material";
 import dayjs from "dayjs";
 import React from "react";
 import {
+  banks,
   country,
   gender,
   marritalStatus,
@@ -9,16 +10,6 @@ import {
 import { DatePickerField, DropdownField, FormTextField } from "./Form";
 
 const BankDetails = ({ control, formState, register }) => {
-  const [age, setAge] = React.useState("");
-  const [value, setValue] = React.useState(dayjs("2014-08-18T21:11:54"));
-
-  const handleDateChange = newValue => {
-    setValue(newValue);
-  };
-
-  const handleChange = event => {
-    setAge(event.target.value);
-  };
   return (
     <div className="form">
       <div className="header">
@@ -27,14 +18,12 @@ const BankDetails = ({ control, formState, register }) => {
       <div className="body flex gap-3 flex-col">
         <div className="grid gap-3 lg:grid-cols-2">
           <DropdownField
-            name="gender"
-            age={age}
-            handleChange={handleChange}
-            label="Gender"
-            selectValue={gender}
+            name="bankName"
+            label="Bank Name"
+            selectValue={banks}
             control={control}
-            error={formState.errors.gender}
-            {...register("gender", { required: true })}
+            error={formState.errors.bankName}
+            {...register("bankName", { required: true })}
           />
           <FormTextField
             name="accountName"

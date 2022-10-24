@@ -29,14 +29,14 @@ const merits = [
         <BsPersonCheck color="#3196FE" size={30} />
       </div>
     ),
-    title: "Rate Bands",
+    title: "Tailored Rate Bands",
     action: (
       <div className="flex justify-center bg-[#E0EFFE] rounded-[50%] items-center p-2">
         <BsArrowRight color="#3196FE" />
       </div>
     ),
     content:
-      "Get access to three (3) rate bands suited just for you, starting from N5,000,000.",
+      "The Note offers you three (3) capital levels, starting from a minimum of N5,000,000.",
   },
   {
     id: 3,
@@ -45,13 +45,30 @@ const merits = [
         <BsShieldLock color="#003399" size={30} />
       </div>
     ),
-    title: "Monthly Interest",
+    title: "Interest Payment Frequency",
     action: (
       <div className="flex justify-center bg-[#E0EFFE] rounded-[50%] items-center p-2">
         <BsArrowRight color="#003399" />
       </div>
     ),
-    content: "You can also choose to earn interest monthly.",
+    content:
+      "Take charge of the frequency of your interest payments, monthly, or at the end of the investment tenor (3 months).",
+  },
+  {
+    id: 4,
+    icon: (
+      <div className="flex justify-center items-center p-3 rounded-[50%] bg-[#E0EFFE]">
+        <BsShieldLock color="#003399" size={30} />
+      </div>
+    ),
+    title: "Guaranteed Perks",
+    action: (
+      <div className="flex justify-center bg-[#E0EFFE] rounded-[50%] items-center p-2">
+        <BsArrowRight color="#003399" />
+      </div>
+    ),
+    content:
+      "Start enjoying perks from the moment you sign up until the maturity of your investment.",
   },
 ];
 
@@ -64,23 +81,19 @@ const Merit = () => {
           <h5 className="text-base">Packages</h5>
         </div>
         <h4 className="text-2xl lg:text-4xl animate-fade-in capitalize font-semibold">
-          Packages Just For You
+          What’s in It for You?
         </h4>
         <div className="max-w-[400px] text-sm text-black text-opacity-70 lg:text-base">
-          {/* One of the advantage of fintech is that it can reduct the circulation
-          of counterfiet money. The existence of the transaction history
-          recording feature is an interesting feature of the paycast */}
-          For a period of 3 months, make prestige investment moves that empower
-          you to earn desirable returns, from 12 to 15%.
+          From interest rates to added benefits, each detail of the Luxury Yield
+          Note is luxurious and an elevated investment experience all-round.
+          Check out some of the premium features of the Note:
         </div>
       </div>
       <div className="grid md:grid-cols-2 self-center  gap-4 lg:gap-8">
         {merits.map(merit => (
           <StyledCard
             key={merit.id}
-            className={` flex flex-col justify-start bg-[#8D2E36] text-white ease-in-out shadow-sm max-w-[300px] py-10 px-7 rounded-md ${
-              merit.id === 3 ? "md:col-start-2 md:col-end-3" : ""
-            }`}
+            className={` flex flex-col justify-start bg-[#8D2E36] text-white ease-in-out shadow-sm max-w-[300px] py-10 px-7 rounded-md `}
           >
             <div
               className={`card flex flex-col items-start pt-3 gap-4 lg:gap-6 `}

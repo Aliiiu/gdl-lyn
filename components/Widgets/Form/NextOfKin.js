@@ -27,41 +27,41 @@ const NextOfKin = ({ control, formState, register }) => {
       <div className="body flex gap-3 flex-col">
         <div className="grid gap-3 lg:grid-cols-3">
           <FormTextField
-            name="lastName"
+            name="nextOfKinLastName"
             multiline
             maxRows={4}
             label="Last Name"
             control={control}
-            error={formState.errors.surname}
-            {...register("lastName", { required: true })}
+            error={formState.errors.nextOfKinLastName}
+            {...register("nextOfKinLastName", { required: true })}
           />
           <FormTextField
             label="First Name"
-            name="firstname"
+            name="nextOfKinFirstName"
             control={control}
-            error={formState.errors.firstname}
-            {...register("firstname", { required: true })}
+            error={formState.errors.nextOfKinFirstName}
+            {...register("nextOfKinFirstName", { required: true })}
           />
           <FormTextField
-            name="othername"
+            name="nextOfKinOtherName"
             multiline
             maxRows={4}
             label="Other Name"
             control={control}
-            error={formState.errors.othername}
-            {...register("othername")}
+            error={formState.errors.nextOfKinOtherName}
+            {...register("nextOfKinOtherName")}
           />
         </div>
         <div className="grid gap-3 lg:grid-cols-2">
           <DropdownField
-            name="gender"
+            name="nextOfKinGender"
             age={age}
             handleChange={handleChange}
             label="Gender"
             selectValue={gender}
             control={control}
-            error={formState.errors.gender}
-            {...register("gender", { required: true })}
+            error={formState.errors.nextOfKinGender}
+            {...register("nextOfKinGender", { required: true })}
           />
           <DropdownField
             name="maritalStatus"

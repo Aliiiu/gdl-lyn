@@ -6,6 +6,8 @@ import NextOfKin from "../components/Widgets/Form/NextOfKin";
 import BankDetails from "../components/Widgets/Form/BankDetails";
 import { BsArrowRightShort } from "react-icons/bs";
 import { IoCloseOutline } from "react-icons/io5";
+import emailjs from "@emailjs/browser";
+import { toast, ToastContainer } from "react-toastify";
 
 export const GetStartedWrapper = styled.div`
   background-image: url("../assets/GDL_BI.png");
@@ -84,11 +86,26 @@ const GetStarted = () => {
     mode: "onChange",
   });
   const onSubmit = data => {
-    alert(JSON.stringify(data));
+    console.log(data);
+    console.log(data.firstname);
+    // const payload = JSON.parse(data);
+    emailjs
+      .send("service_9z472fn", "template_04ppk2s", data, "45DpXFvmZLKlgyjgW")
+      .then(
+        result => {
+          toast.success(result.text);
+          console.log(result);
+        },
+        error => {
+          toast.error(error.text);
+          console.error(error);
+        }
+      );
   };
 
   return (
     <GetStartedWrapper>
+      <ToastContainer />
       <div className="container  mx-auto">
         <div className=" px-5 py-6">
           <div className="flex justify-center">

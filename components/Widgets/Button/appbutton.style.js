@@ -7,6 +7,7 @@ export const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 8px;
   color: ${props => props.color || "#fff"};
   /* background: ${props =>
     props.bg || "linear-gradient(136.67deg, #CA3832 8.34%, #8D2E36 95.26%)"}; */

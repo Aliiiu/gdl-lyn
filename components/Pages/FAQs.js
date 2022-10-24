@@ -73,8 +73,8 @@ const FAQs = () => {
               className="text-white max-w-[600px] items-center text-center"
               sub_topic={
                 <i className="font-medium">
-                  Sign Up For Guaranteed Perks (Such As High-Tech Modems, Data
-                  Subscriptions, Gift Vouchers and much more).
+                  It takes only just a few minutes to start earning superior
+                  returns.
                 </i>
               }
             />

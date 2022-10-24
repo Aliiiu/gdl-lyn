@@ -40,7 +40,7 @@ const Home = () => {
         </div>
         <AppButton
           name="Sign Up To Get Started"
-          className="bg-black px-8 py-3 mx-auto lg:mx-0 text-xl mt-4 xl:mt-8 font-semibold"
+          className="bg-black px-8 py-3 max-w-max mx-auto lg:mx-0 text-xl mt-4 xl:mt-8 font-semibold"
         />
         {/* <h5 className="text-xs max-w-[350px] mt-2 text-info">
           Sign Up For Guaranteed Perks (Such As High-Tech Modems, Data
