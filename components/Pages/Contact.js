@@ -43,8 +43,8 @@ const Contact = () => {
             Zone A08 Ademola Adetokunbo Crescent, Wuse ll, Abuja- Nigeria
           </p>
           <div className="text-sm text-black text-opacity-50 mt-3">
-            <a href="tel:+2347054435000">+2347054435000,</a>
-            <a href="tel:+2349058179336">+2349058179336</a>
+            <a href="tel:+2347054435000">+2348029990971,</a>
+            <a href="tel:+2349058179336">+2348032491428</a>
           </div>
           <div className="flex items-center gap-2 mr-7 pt-2 lg:pt-5">
             <Wobble>

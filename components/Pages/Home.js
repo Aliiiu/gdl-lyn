@@ -19,24 +19,20 @@ const Home = () => {
   return (
     <div className="flex flex-col md:flex-row gap-4 md:py-5 md:pb-0">
       <div className="info flex-1 pt-5 xl:justify-center flex flex-col">
-        <Flash>
-          <div className="bg-transparent text-center lg:text-left">
-            <h1 className="text-3xl font-extrabold text-primary md:text-5xl xl:text-6xl lg:max-w-[420px]">
-              <span className="text-second uppercase inline">Luxury</span> in
-              Every Detail.
-            </h1>
-          </div>
-        </Flash>
+        <div className="bg-transparent text-center lg:text-left">
+          <h1 className="text-3xl font-extrabold text-primary md:text-5xl xl:text-6xl lg:max-w-[420px]">
+            <span className="text-second uppercase inline">Luxury</span> in
+            Every Detail.
+          </h1>
+        </div>
         <div className="py-5 pb-1">
-          <LightSpeed right cascade>
-            <span>
-              <p className="font-normal text-info text-center lg:text-left text-sm md:text-base lg:text-lg leading-relaxed mx-auto lg:mx-0 max-w-[450px] font-ibm-font">
-                Introducing exclusivity and value in the{" "}
-                <span className="text-second inline">Luxury Yield Note</span> -
-                a limited offer, fixed deposit investment.
-              </p>
-            </span>
-          </LightSpeed>
+          <span>
+            <p className="font-normal text-info text-center lg:text-left text-sm md:text-base lg:text-lg leading-relaxed mx-auto lg:mx-0 max-w-[450px] font-ibm-font">
+              Introducing exclusivity and value in the{" "}
+              <span className="text-second inline">Luxury Yield Note</span> - a
+              limited offer, fixed deposit investment.
+            </p>
+          </span>
         </div>
         <AppButton
           name="Sign Up To Get Started"
