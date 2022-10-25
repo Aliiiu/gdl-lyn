@@ -38,7 +38,7 @@ const FAQs = () => {
   ];
   return (
     <div className="">
-      {/* <div className="top flex flex-col items-center">
+      <div className="top flex flex-col items-center">
         <div className="topic">
           <h1 className="text-2xl tracking-wider text-center font-bold text-primary lg:text-4xl">
             <span>Get Answers Here.</span>
@@ -51,15 +51,15 @@ const FAQs = () => {
             </p>
           </span>
         </div>
-      </div> */}
+      </div>
       <div className="bottom pt-7 md:pt-0">
-        {/* {faqArray.map((content, index) => (
+        {faqArray.map((content, index) => (
           <AppAccordion
             key={content.question}
             {...content}
             panel={`panel${index + 1}`}
           />
-        ))} */}
+        ))}
         <div className="px-0 pt-4 md:pt-10">
           <Container
             bg="#8D2733"

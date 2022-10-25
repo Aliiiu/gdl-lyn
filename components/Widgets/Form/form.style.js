@@ -58,11 +58,10 @@ export const FormInput = Muistyled(props => (
 ))(({ theme, ...props }) => ({
   "& label": {
     color: "#24215D",
-    fontSize: "14px",
+    fontSize: "13px",
   },
   "& label.Mui-focused": {
     color: "#24215D",
-    lineHeight: "1.2",
   },
   "& .MuiFilledInput-root": {
     border: `1px solid ${props.error ? "red" : "#e8ebed"}`,

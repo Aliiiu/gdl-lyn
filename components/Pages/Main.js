@@ -57,10 +57,7 @@ const Main = () => {
       >
         <FAQs />
       </section> */}
-      <section
-        id="get-started"
-        className="bg-[#8D2733] py-10 flex justify-center w-full"
-      >
+      <section id="get-started" className="py-10 flex justify-center w-full">
         <div className="container w-full lg:w-5/6 xl:w-4/6">
           <FAQs />
         </div>

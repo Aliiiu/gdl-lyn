@@ -193,47 +193,6 @@ export const FormImageField = React.forwardRef(
   }
 );
 
-const BootstrapInput = styled(InputBase)(({ theme }) => ({
-  "label + &": {
-    marginTop: "0px",
-    color: "red",
-  },
-  "& .MuiInputBase-input": {
-    borderRadius: 4,
-    position: "relative",
-    backgroundColor: "transparent",
-    border: "1px solid #ced4da",
-    fontSize: 16,
-    padding: "10px 26px 10px 12px",
-    // transition: theme.transitions.create(["border-color", "box-shadow"]),
-    // Use the system font instead of the default Roboto font.
-    "&:focus": {
-      borderRadius: 4,
-      borderColor: "#80bdff",
-      boxShadow: "0 0 0 0.2rem rgba(0,123,255,.25)",
-    },
-  },
-}));
-const CustomSelect = styled(Select)(({ theme, props }) => ({
-  "& .MuiOutlinedInput-notchedOutline": {
-    border: `1px solid #e8ebed`,
-    "&.Mui-focused": {
-      backgroundColor: "transparent",
-      // boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 2px`,
-      borderColor: "#A23437",
-    },
-  },
-  "& .MuiFormControl-root": {
-    "& .MuiInput-underline:hover:not(.Mui-disabled):before": {
-      borderColor: "red",
-    },
-  },
-  "&:hover": {
-    backgroundColor: "transparent",
-    borderColor: "red",
-  },
-}));
-
 const theme = createTheme({
   components: {
     MuiFormLabel: {
@@ -263,16 +222,6 @@ const theme = createTheme({
     MuiSelect: {
       styleOverrides: {
         root: {
-          // "&.input-success": {
-          //   input: {
-          //     borderColor: theme.palette.success.dark,
-          //   },
-          // },
-          // "&.Mui-error": {
-          //   ".MuiSelect-select": {
-          //     border: `2px solid ${theme.palette.error.dark}`,
-          //   },
-          // },
           ".MuiSelect-select": {
             backgroundColor: "transparent",
             border: `1px solid #e8ebed`,
@@ -308,17 +257,6 @@ const theme = createTheme({
               border: `1px solid #A23437`,
             },
           },
-          // ".MuiSelect-icon": {
-          //   right: 12,
-          //   path: {
-          //     fill: theme.palette.utility.extradark,
-          //   },
-          //   "&.Mui-disabled": {
-          //     path: {
-          //       fill: theme.palette.utility.main,
-          //     },
-          //   },
-          // },
           fieldset: {
             display: "none",
           },
@@ -392,6 +330,40 @@ export const DropdownField = React.forwardRef(
     );
   }
 );
+
+const dateTheme = createTheme({
+  components: {
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          ".MuiInputBase-input": {
+            fontSize: "14px",
+            color: "#24215D",
+          },
+          fieldset: {
+            display: "none",
+          },
+        },
+      },
+    },
+    MuiFormControl: {
+      styleOverrides: {
+        root: {
+          border: "1px solid #e8ebed",
+          borderRadius: "4px",
+          label: {
+            backgroundColor: "white",
+            paddingRight: "10px",
+            paddingLeft: "5px",
+          },
+          ":hover": {
+            borderColor: "#A23437",
+          },
+        },
+      },
+    },
+  },
+});
 export const DatePickerField = React.forwardRef(
   ({ label, name, control, className, error }, ref) => {
     const [value, setValue] = React.useState(dayjs("2014-08-18T21:11:54"));
@@ -400,75 +372,57 @@ export const DatePickerField = React.forwardRef(
       setValue(newValue);
     };
 
-    const CustomDatePicker = styled(DatePicker)(({ theme, props }) => ({
-      "& .MuiOutlinedInput-notchedOutline": {
-        border: `1px solid #e8ebed`,
-        "&:hover": {
-          backgroundColor: "transparent",
-          borderColor: "#A23437",
-        },
-        "&.Mui-focused": {
-          backgroundColor: "transparent",
-          // boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 2px`,
-          borderColor: "#A23437",
-        },
-      },
-      // "& .MuiFormControl-root": {
-      //   border: 0,
-      // },
-    }));
     return (
       <>
-        <Controller
-          name={name}
-          control={control}
-          render={({ field: { onChange } }) => (
-            <div className="flex flex-col">
-              <LocalizationProvider ref={ref} dateAdapter={AdapterDayjs}>
-                <>
-                  <CustomDatePicker
-                    label={label}
-                    openTo="year"
-                    views={["year", "month", "day"]}
-                    value={value}
-                    onChange={value => {
-                      // console.log(value);
-                      onChange(value);
-                      setValue(value);
-                    }}
-                    error={error}
-                    renderInput={params => (
-                      <TextField
-                        sx={{
-                          "& label": {
-                            color: "#24215D",
-                            fontSize: "14px",
-                          },
-                          "& label.Mui-focused": {
-                            color: "#24215D",
-                          },
-                          "& .MuiOutlinedInput-root": {
-                            border: 0,
-                            height: "48px",
-                            // "&.Mui-focused": {
-                            //   backgroundColor: ""transparent"",
-                            //   borderColor: "#A23437",
-                            // },
-                          },
-                        }}
-                        fullWidth
-                        {...params}
-                      />
-                    )}
-                  />
-                </>
-              </LocalizationProvider>
-              {error && (
-                <h5 className="text-red-500 text-xs">Enter your {label}</h5>
-              )}
-            </div>
-          )}
-        />
+        <ThemeProvider theme={dateTheme}>
+          <Controller
+            name={name}
+            control={control}
+            render={({ field: { onChange } }) => (
+              <div className="flex flex-col">
+                <LocalizationProvider ref={ref} dateAdapter={AdapterDayjs}>
+                  <>
+                    <DatePicker
+                      label={label}
+                      openTo="year"
+                      views={["year", "month", "day"]}
+                      value={value}
+                      onChange={value => {
+                        // console.log(value);
+                        onChange(value);
+                        setValue(value);
+                      }}
+                      error={error}
+                      renderInput={params => (
+                        <TextField
+                          sx={{
+                            "& label": {
+                              color: "#24215D",
+                              fontSize: "14px",
+                            },
+                            "& label.Mui-focused": {
+                              color: "#24215D",
+                            },
+                            "& .MuiOutlinedInput-root": {
+                              border: 0,
+                              height: "48px",
+                              backgroundColor: "transparent",
+                            },
+                          }}
+                          fullWidth
+                          {...params}
+                        />
+                      )}
+                    />
+                  </>
+                </LocalizationProvider>
+                {error && (
+                  <h5 className="text-red-500 text-xs">Enter your {label}</h5>
+                )}
+              </div>
+            )}
+          />
+        </ThemeProvider>
       </>
     );
   }

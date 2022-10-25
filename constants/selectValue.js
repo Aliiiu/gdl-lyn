@@ -71,94 +71,90 @@ export const country = [
 export const banks = [
   {
     id: 1,
-    value: "-- select country --",
-  },
-  {
-    id: 2,
     value: "Access Bank",
   },
   {
-    id: 3,
+    id: 2,
     value: "Citibank Nigeria",
   },
   {
-    id: 4,
+    id: 3,
     value: "Ecobank Nigeria",
   },
   {
-    id: 5,
+    id: 4,
     value: "Enterprise Bank",
   },
   {
-    id: 6,
+    id: 5,
     value: "Fidelity Bank",
   },
   {
-    id: 7,
+    id: 6,
     value: "First City Monument Bank",
   },
   {
-    id: 8,
+    id: 7,
     value: "Guaranty Trust Bank",
   },
   {
-    id: 9,
+    id: 8,
     value: "Heritage Bank",
   },
   {
-    id: 10,
+    id: 9,
     value: "Jaiz Bank Plc",
   },
   {
-    id: 11,
+    id: 10,
     value: "Keystone Bank",
   },
   {
-    id: 12,
+    id: 11,
     value: "Mainstreet Bank",
   },
   {
-    id: 13,
+    id: 12,
     value: "Polaris Bank Ltd",
   },
   {
-    id: 14,
+    id: 13,
     value: "Skye Bank",
   },
   {
-    id: 15,
+    id: 14,
     value: "Stanbic IBTC Bank",
   },
   {
-    id: 16,
+    id: 15,
     value: "Standard Chartered Bank Nigeria",
   },
   {
-    id: 17,
+    id: 16,
     value: "Sterling Bank",
   },
   {
-    id: 18,
+    id: 17,
     value: "Suntrust Bank Nigeria",
   },
   {
-    id: 19,
+    id: 18,
     value: "Union Bank",
   },
   {
-    id: 20,
+    id: 19,
     value: "United Bank For Africa",
   },
   {
-    id: 21,
+    id: 20,
     value: "Unity bank",
   },
   {
-    id: 22,
+    id: 21,
     value: "Wema Bank",
   },
   {
-    id: 23,
+    id: 22,
     value: "Zenith Bank",
   },
 ];
