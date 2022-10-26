@@ -83,26 +83,6 @@ const BioDataForm = ({ control, formState, register }) => {
             {...register("maritalStatus", { required: true })}
           />
         </div>
-        <div className="grid gap-3 md:grid-cols-2">
-          <FormTextField
-            name="phoneNumber"
-            multiline
-            maxRows={4}
-            label="Phone Number"
-            control={control}
-            error={formState.errors.phoneNumber}
-            {...register("phoneNumber", { required: true })}
-          />
-          <FormTextField
-            name="email"
-            multiline
-            maxRows={4}
-            label="Email"
-            control={control}
-            error={formState.errors.email}
-            {...register("email", { required: true })}
-          />
-        </div>
         <div className="grid gap-3 md:grid-cols-3">
           <DropdownField
             name="country"
@@ -131,6 +111,35 @@ const BioDataForm = ({ control, formState, register }) => {
             control={control}
             error={formState.errors.city}
             {...register("city")}
+          />
+        </div>
+        <div className="grid gap-3 md:grid-cols-3">
+          <FormTextField
+            name="phoneNumber"
+            multiline
+            maxRows={4}
+            label="Phone Number"
+            control={control}
+            error={formState.errors.phoneNumber}
+            {...register("phoneNumber", { required: true })}
+          />
+          <FormTextField
+            name="email"
+            multiline
+            maxRows={4}
+            label="Email"
+            control={control}
+            error={formState.errors.email}
+            {...register("email", { required: true })}
+          />
+          <FormTextField
+            name="referral"
+            multiline
+            maxRows={4}
+            // label="how did you hear about us (e.g: social media, staff...)"
+            control={control}
+            error={formState.errors.phoneNumber}
+            {...register("phoneNumber", { required: true })}
           />
         </div>
         <div>

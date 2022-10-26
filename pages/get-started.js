@@ -75,11 +75,11 @@ export const GetStartedWrapper = styled.div`
     border: 1px solid #e8ebed;
     border-radius: 4px;
     padding: 0.8em;
-    color: #24215d;
+    color: #696666;
     font-size: 14px;
     resize: none;
     ::placeholder {
-      color: #24215d;
+      color: #696666;
     }
   }
 `;
@@ -92,23 +92,6 @@ const GetStarted = () => {
     console.log(data);
     console.log(data.firstname);
     localStorage.setItem("formData", JSON.stringify(data));
-    // const payload = JSON.parse(data);
-    // emailjs
-    //   .send("service_9z472fn", "template_04ppk2s", data, "45DpXFvmZLKlgyjgW")
-    //   .then(
-    //     result => {
-    //       toast.success(result.text);
-    //       navigate.push(
-    //         { pathname: "/file-upload", query: data },
-    //         "/file-upload"
-    //       );
-    //       console.log(result);
-    //     },
-    //     error => {
-    //       toast.error(error.text);
-    //       console.error(error);
-    //     }
-    //   );
 
     navigate.push("/file-upload");
   };

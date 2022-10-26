@@ -57,11 +57,11 @@ export const FormInput = Muistyled(props => (
   <TextField InputProps={{ disableUnderline: true }} {...props} />
 ))(({ theme, ...props }) => ({
   "& label": {
-    color: "#24215D",
+    color: "#696666",
     fontSize: "13px",
   },
   "& label.Mui-focused": {
-    color: "#24215D",
+    color: "grey",
   },
   "& .MuiFilledInput-root": {
     border: `1px solid ${props.error ? "red" : "#e8ebed"}`,
@@ -69,7 +69,7 @@ export const FormInput = Muistyled(props => (
     borderRadius: 3,
     // padding: "0.8em",
     height: "48px",
-    color: "#24215D",
+    color: "#696666",
     backgroundColor: theme.palette.mode === "light" ? "#fcfcfb" : "#2b2b2b",
     transition: theme.transitions.create([
       "border-color",

@@ -38,14 +38,18 @@ export const FormTextField = React.forwardRef(
                 ref={ref}
                 id={name}
                 multiline
-                label={label}
+                label={
+                  label || "How did you hear about us (social media, staff...)"
+                }
                 variant="filled"
                 name={name}
                 onChange={onChange}
                 error={error}
               />
               {error && (
-                <h5 className="text-red-500 text-xs">Enter your {label}</h5>
+                <h5 className="text-red-500 text-xs">
+                  Enter {label ? `your ${label}` : "this Field"}
+                </h5>
               )}
             </div>
           )}
@@ -234,7 +238,7 @@ const theme = createTheme({
             width: "100% !important",
             display: "flex",
             alignItems: "center",
-            color: "#24215D",
+            color: "#696666",
             "&:hover": {
               border: `1px solid #A23437`,
             },
@@ -300,7 +304,7 @@ export const DropdownField = React.forwardRef(
                         value
                       ) : (
                         <em
-                          className="text-sm text-[#24215D] max-w-[100px] sm:max-w-fit lowercase"
+                          className="text-sm text-[#696666] max-w-[100px] sm:max-w-fit lowercase"
                           style={{ textDecoration: "lowerCase" }}
                         >
                           --select {label}--
@@ -338,7 +342,7 @@ const dateTheme = createTheme({
         root: {
           ".MuiInputBase-input": {
             fontSize: "14px",
-            color: "#24215D",
+            color: "#696666",
           },
           fieldset: {
             display: "none",
@@ -397,11 +401,11 @@ export const DatePickerField = React.forwardRef(
                         <TextField
                           sx={{
                             "& label": {
-                              color: "#24215D",
+                              color: "#696666",
                               fontSize: "14px",
                             },
                             "& label.Mui-focused": {
-                              color: "#24215D",
+                              color: "#696666",
                             },
                             "& .MuiOutlinedInput-root": {
                               border: 0,

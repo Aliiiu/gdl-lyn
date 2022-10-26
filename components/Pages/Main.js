@@ -24,7 +24,10 @@ import Offer from "./Offer";
 const Main = () => {
   return (
     <PageContainer className="">
-      <section id="home" className="container lg:w-5/6 xl:w-4/6 w-full pb-0">
+      <section
+        id="home"
+        className="container mx-auto lg:w-11/12 xl:w-4/6 w-full pb-0"
+      >
         <Homepage />
       </section>
       {/* <section id="how-it-works" className="container lg:w-5/6 xl:w-4/6 w-full">
@@ -32,7 +35,7 @@ const Main = () => {
       </section> */}
       <section
         id="products"
-        className="container relative lg:w-5/6 xl:w-4/6 w-full py-10 lg:pt-[2rem]"
+        className="container mx-auto relative lg:w-11/12 xl:w-4/6 w-full py-10 lg:pt-[2rem]"
       >
         <div className="absolute top-0 -z-10 left-0 flex justify-center items-center -ml-32">
           <div className="flex items-center justify-center rounded-[9999px] border-[#FFF1F4] w-[400px] h-[400px] lg:w-[800px] lg:h-[800px] border-[32px]">
@@ -41,7 +44,10 @@ const Main = () => {
         </div>
         <Merit />
       </section>
-      <section id="perks" className="container lg:w-5/6 xl:w-4/6 w-full ">
+      <section
+        id="perks"
+        className="container mx-auto lg:w-4/6 xl:w-4/6 w-full "
+      >
         <E2ESecurity />
       </section>
       {/* <section id="pricing-plan" className="container lg:w-4/6 w-full md:py-10">
@@ -60,7 +66,7 @@ const Main = () => {
         <Offer />
       </section>
       <section id="get-started" className="py-10 flex justify-center w-full">
-        <div className="container w-full lg:w-5/6 xl:w-4/6">
+        <div className="container w-full lg:w-11/12 xl:w-4/6">
           <FAQs />
         </div>
       </section>
@@ -93,7 +99,7 @@ const Main = () => {
       </section>
       <section
         id="contact"
-        className="container lg:w-5/6 xl:w-4/6 w-full py-16"
+        className="container mx-auto lg:w-11/12 xl:w-4/6 w-full py-16"
       >
         <Contact />
       </section>

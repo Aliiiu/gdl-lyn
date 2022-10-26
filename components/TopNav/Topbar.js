@@ -32,7 +32,7 @@ const Topbar2 = props => {
   }
   return (
     <TopContainer className="bg-white top-0 sticky z-40 w-full border-b border-gray-200">
-      <div className="bg-transparent lg:w-5/6 xl:w-4/6 w-full animate-fade-in">
+      <div className="bg-transparent lg:w-11/12 xl:w-4/6 w-full animate-fade-in">
         <nav className="py-2.5 z-20 top-0 left-0">
           <div className="container flex flex-wrap justify-between items-center mx-auto">
             <div

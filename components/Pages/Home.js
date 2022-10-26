@@ -1,11 +1,9 @@
 import React from "react";
-import bgHero from "../../assets/Images/man2.png";
+import bgHero from "../../assets/Images/man.png";
 import { AppButton } from "../Widgets/Button/AppButton";
 import { StoreButton, Content } from "../Widgets/Button/StoreButton";
 import PlayStore from "../../assets/Images/google.png";
 import AppStore from "../../assets/Images/apple.png";
-import Flash from "react-reveal/Flash";
-import LightSpeed from "react-reveal/LightSpeed";
 import Image from "next/image";
 import CustomImage from "../Widgets/CustomImage/CustomImage";
 
