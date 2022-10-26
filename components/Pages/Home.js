@@ -51,7 +51,7 @@ const Home = () => {
           className="animate-zoom-out w-[600px] h-[600px]"
         /> */}
         <div
-          className={`relative flex-shrink-0 animate-zoom-out w-[700px] h-[300px] xl:h-[600px]`}
+          className={`relative hidden md:block flex-shrink-0 animate-zoom-out w-[400px] xl:w-[700px] h-[300px] xl:h-[600px]`}
         >
           <Image src={bgHero} alt={""} layout="fill" objectFit="cover" />
         </div>

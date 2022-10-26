@@ -16,7 +16,7 @@ const Offer = () => {
         The Offer
       </h2>
       <p className="text-center mt-2 text-white">
-        The is a limited, short term offer of 6 months, <br /> high interest
+        This is a limited, short term offer of 6 months, <br /> high interest
         investment policy
       </p>
       <div className="flex mt-8 justify-center">
