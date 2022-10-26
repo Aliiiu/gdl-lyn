@@ -15,6 +15,11 @@ import Features from "./Features";
 import Merit from "./Merit";
 import E2ESecurity from "./E2ESecurity";
 import PricingPlan from "./PricingPlan";
+import { Container, CardDiv } from "./page.style";
+import { Content } from "../Widgets/Blog/BlogContent";
+import Table from "../Widgets/Table";
+import { rates } from "../../constants/plans";
+import Offer from "./Offer";
 
 const Main = () => {
   return (
@@ -36,12 +41,6 @@ const Main = () => {
         </div>
         <Merit />
       </section>
-      {/* <section
-        id="features"
-        className="container lg:w-5/6 xl:w-4/6 w-full md:py-10"
-      >
-        <Features />
-      </section> */}
       <section id="perks" className="container lg:w-5/6 xl:w-4/6 w-full ">
         <E2ESecurity />
       </section>
@@ -57,9 +56,39 @@ const Main = () => {
       >
         <FAQs />
       </section> */}
+      <section className="bg-[#8D2733] flex py-10 justify-center w-full">
+        <Offer />
+      </section>
       <section id="get-started" className="py-10 flex justify-center w-full">
         <div className="container w-full lg:w-5/6 xl:w-4/6">
           <FAQs />
+        </div>
+      </section>
+      <section
+        id="get-started"
+        className="bg-[#8D2733] py-10 flex justify-center w-full"
+      >
+        <div className="container w-full lg:w-5/6 xl:w-4/6">
+          <div className="px-0 pt-4 xl:pt-8">
+            <Container
+              bg="#8D2733"
+              // height="10em"
+              className="px-5 xl:py-8 flex justify-center"
+            >
+              <Content
+                no_gen
+                is_btn
+                topic="Ready To Get Started ?"
+                className="text-white max-w-[600px] items-center text-center"
+                sub_topic={
+                  <i className="font-medium">
+                    It takes only just a few minutes to start earning superior
+                    returns.
+                  </i>
+                }
+              />
+            </Container>
+          </div>
         </div>
       </section>
       <section

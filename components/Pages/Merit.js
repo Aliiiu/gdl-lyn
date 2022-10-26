@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoSettingsOutline } from "react-icons/io5";
 import { BsPersonCheck } from "react-icons/bs";
 import { BsShieldLock } from "react-icons/bs";
 import { BsArrowRight } from "react-icons/bs";
 import { StyledCard } from "./merit.style";
+import AppModal from "../Widgets/Modal/Modal";
+import ModalContent from "./ModalContent";
 
 const merits = [
   {
@@ -21,7 +23,7 @@ const merits = [
     ),
     actionContent: "Great returns",
     content:
-      "For a period of 3 months, Finance an investment that enables you to get a lavish return as high as 15%.",
+      "For a period of 6 months, Finance an investment that enables you to get a lavish return as high as 15%.",
   },
   {
     id: 2,
@@ -77,8 +79,14 @@ const merits = [
 ];
 
 const Merit = () => {
+  const [open, setOpen] = useState(false);
   return (
     <div className="flex flex-col lg:flex-row gap-7 justify-between">
+      <AppModal
+        open={open}
+        onClose={() => setOpen(false)}
+        content={<ModalContent />}
+      />
       <div className="flex flex-1 self-center flex-col gap-5">
         <div className="header flex gap-3 items-center">
           <div className="lg:w-10 w-6 h-1 bg-gray-700"></div>
@@ -110,10 +118,12 @@ const Merit = () => {
                 </h3>
                 <p className="text-sm text-[15px] pt-2">{merit.content}</p>
               </div>
-              <div className="subtitle flex items-center gap-3">
-                {merit.action}
-                {merit.actionContent}
-              </div>
+              <button
+                onClick={() => setOpen(true)}
+                className="subtitle flex items-center gap-3"
+              >
+                {merit.action} Learn More
+              </button>
             </div>
           </StyledCard>
         ))}

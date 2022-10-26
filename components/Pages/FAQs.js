@@ -1,44 +1,36 @@
 import React from "react";
 import AppAccordion from "../Widgets/Accordion/Accordion";
-import { Container, CardDiv } from "./page.style";
-import { Content } from "../Widgets/Blog/BlogContent";
 
 const FAQs = () => {
   const faqArray = [
     {
-      question: "Where are you located?",
+      question: "Who is GDL?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.",
+        "Growth and Development Limited (GDL) is a non-bank financial institution licensed by the Central Bank of Nigeria (CBN) to carry on financing business in Nigeria. As suc, our activities are monitored and supervised by the CBN",
     },
     {
-      question: "How do I get started?",
+      question: "What are my options on interest payments?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.",
+        "With the Luxury Yield Note, you have the option of receiving monthly payments for the tenor of the investment or at the maturity (6 months).",
     },
     {
-      question: "What licenses do you have?",
+      question: "Is early investment termination an option?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.",
+        "Yes, you can withdraw your funds before maturity of the investment. However, the investor will incur a 35% penal charge on interest for early termination. Please note that interest is stated as per annum",
     },
     {
-      question: "How can I be sure my money is safe with you?",
+      question: "Can I top up my investment?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.",
-    },
-    {
-      question: "How many products are there?",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.",
-    },
-    {
-      question: "How fast can I withdraw?",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.",
+        "Yes. The note allows for a minimum top-up amount of ₦1,000,000 for all bands and the investor will receive interest based on the days remaining on the running investment.",
     },
   ];
   return (
     <div className="">
       <div className="top flex flex-col items-center">
+        <div className="header flex gap-3 mb-4 items-center ">
+          <div className="w-8 h-1 bg-gray-700"></div>
+          <h5 className="">FAQs</h5>
+        </div>
         <div className="topic">
           <h1 className="text-2xl tracking-wider text-center font-bold text-primary lg:text-4xl">
             <span>Get Answers Here.</span>
@@ -60,26 +52,6 @@ const FAQs = () => {
             panel={`panel${index + 1}`}
           />
         ))}
-        <div className="px-0 pt-4 md:pt-10">
-          <Container
-            bg="#8D2733"
-            height="20em"
-            className="px-5 py-8 lg:p-10 lg:py-16 flex justify-center"
-          >
-            <Content
-              no_gen
-              is_btn
-              topic="Ready To Get Started ?"
-              className="text-white max-w-[600px] items-center text-center"
-              sub_topic={
-                <i className="font-medium">
-                  It takes only just a few minutes to start earning superior
-                  returns.
-                </i>
-              }
-            />
-          </Container>
-        </div>
       </div>
     </div>
   );
