@@ -50,10 +50,15 @@ const Home = () => {
           src={bgHero3}
           className="animate-zoom-out w-[600px] h-[600px]"
         /> */}
-        <CustomImage
+        <div
+          className={`relative flex-shrink-0 animate-zoom-out w-[700px] h-[300px] xl:h-[600px]`}
+        >
+          <Image src={bgHero} alt={""} layout="fill" objectFit="cover" />
+        </div>
+        {/* <CustomImage
           src={bgHero}
           className="animate-zoom-out w-[700px] h-[300px] xl:h-[600px]"
-        />
+        /> */}
       </div>
     </div>
   );
