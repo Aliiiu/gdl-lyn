@@ -59,7 +59,7 @@ const ModalContent = props => {
             </div>
             <div>
               <h2 className="text-red-500 text-xl font-semibold">Perks</h2>
-              <p>Upom sign up, you are entitled to amazing perks such as;</p>
+              <p>Upon sign up, you are entitled to amazing perks such as;</p>
               <ul className="mt-5">
                 <li>
                   <span className="px-2">-</span>Modem and 70GB data for Band I
@@ -80,7 +80,7 @@ const ModalContent = props => {
               <h2 className="font-semibold text-xl">Target Period</h2>
               <p>
                 This opportunity is limited to investors who are looking to
-                cushion their funds and expand their yiedl
+                cushion their funds and expand their yield
               </p>
               <p className="mt-5">
                 The Luxury Yield Note is exclusively for experienced investors,

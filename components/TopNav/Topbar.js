@@ -7,6 +7,7 @@ import { Transition } from "@headlessui/react";
 import { AppButton } from "../Widgets/Button/AppButton";
 import CustomImage from "../Widgets/CustomImage/CustomImage";
 import img from "../../assets/Images/gdl-logo.png";
+import lyn from "../../assets/Images/lyn-logo.png";
 import { useTheme } from "next-themes";
 import { IoMdClose } from "react-icons/io";
 import { TiThMenu } from "react-icons/ti";
@@ -41,7 +42,7 @@ const Topbar2 = props => {
               <Link href="/">
                 <a>
                   <CustomImage
-                    src={img}
+                    src={showNavBar ? img : lyn}
                     className="w-[40px] h-[40px] lg:w-[50px] lg:h-[50px]"
                   />
                 </a>

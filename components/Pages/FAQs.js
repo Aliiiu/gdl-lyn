@@ -6,7 +6,7 @@ const FAQs = () => {
     {
       question: "Who is GDL?",
       answer:
-        "Growth and Development Limited (GDL) is a non-bank financial institution licensed by the Central Bank of Nigeria (CBN) to carry on financing business in Nigeria. As suc, our activities are monitored and supervised by the CBN",
+        "Growth and Development Limited (GDL) is a non-bank financial institution licensed by the Central Bank of Nigeria (CBN) to carry on financing business in Nigeria. As such, our activities are monitored and supervised by the CBN",
     },
     {
       question: "What are my options on interest payments?",

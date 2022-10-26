@@ -1,5 +1,5 @@
 import React from "react";
-import bgHero from "../../assets/Images/man.png";
+import bgHero from "../../assets/Images/LM4.png";
 import { AppButton } from "../Widgets/Button/AppButton";
 import { StoreButton, Content } from "../Widgets/Button/StoreButton";
 import PlayStore from "../../assets/Images/google.png";
@@ -52,7 +52,7 @@ const Home = () => {
         /> */}
         <CustomImage
           src={bgHero}
-          className="animate-zoom-out w-full h-[300px] xl:h-[600px]"
+          className="animate-zoom-out w-[700px] h-[300px] xl:h-[600px]"
         />
       </div>
     </div>
