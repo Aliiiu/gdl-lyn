@@ -12,7 +12,7 @@ const ListComponent = props => (
             key={content}
             className="font-light text-black text-opacity-50 text-sm mb-4"
           >
-            <a href="javascript:void(0)">{content}</a>
+            {content}
           </li>
         ))}
       </ul>
