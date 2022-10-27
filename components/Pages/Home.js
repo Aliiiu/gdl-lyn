@@ -22,7 +22,7 @@ const Home = () => {
             <p className="font-normal text-info text-center md:text-left text-sm md:text-base lg:text-lg leading-relaxed mx-auto lg:mx-0 max-w-[450px] font-ibm-font">
               Introducing exclusivity and value in the{" "}
               <span className="text-second inline">Luxury Yield Note</span> - a
-              limited offer, fixed deposit investment.
+              limited offer investment note.
             </p>
           </span>
         </div>

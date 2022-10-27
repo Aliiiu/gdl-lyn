@@ -23,7 +23,7 @@ const merits = [
     ),
     actionContent: "Great returns",
     content:
-      "For a period of 6 months, Finance an investment that enables you to get a lavish return as high as 15%.",
+      "For a period of 6 months, enjoy an investment that offers you a lavish return as high as 15% p.a.",
   },
   {
     id: 2,
@@ -40,7 +40,7 @@ const merits = [
     ),
     actionContent: "High Rates",
     content:
-      "The Note offers you three (3) capital levels, starting from a minimum of N5,000,000.",
+      "The Note offers you three (3) investment tiers, with a minimum of N5,000,000 required.",
   },
   {
     id: 3,
@@ -57,7 +57,7 @@ const merits = [
     ),
     actionContent: "Quick Payouts",
     content:
-      "Take charge of the frequency of your interest payments, monthly, or at the end of the investment tenor (3 months).",
+      "Take charge of the frequency of your interest payments, monthly, or at the end of the investment tenor (6 months).",
   },
   {
     id: 4,
@@ -74,7 +74,7 @@ const merits = [
     ),
     actionContent: "Enjoy Great Perks",
     content:
-      "Start enjoying perks from the moment you sign up until the maturity of your investment.",
+      "Enjoy fantastic perks that gets even more exciting with a higher level of investment.",
   },
 ];
 
@@ -97,8 +97,8 @@ const Merit = () => {
         </h4>
         <div className="max-w-[400px] text-sm text-black text-opacity-70 lg:text-base">
           From interest rates to added benefits, each detail of the Luxury Yield
-          Note is luxurious and an elevated investment experience all-round.
-          Check out some of the premium features of the Note:
+          Note is an all-round, elevated investment experience. Check out some
+          of the premium features of the Note:
         </div>
       </div>
       <div className="grid md:grid-cols-2 self-center  gap-4 lg:gap-8">

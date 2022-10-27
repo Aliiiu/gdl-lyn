@@ -19,7 +19,7 @@ import { BsWhatsapp, BsFacebook } from "react-icons/bs";
 const Contact = () => {
   return (
     <div className="flex flex-col">
-      <div className="flex flex-col gap-3 md:flex-row justify-between">
+      <div className="flex flex-col gap-5 2xl:gap-[100px] md:flex-row justify-between">
         <div className="flex items-start flex-col">
           <div className="flex gap-1 lg:gap-3 justify-center items-center">
             <CustomImage
@@ -77,46 +77,41 @@ const Contact = () => {
             </Wobble>
           </div>
         </div>
-        <div className="flex flex-col">
-          <ListComponent
-            name="Company"
-            items={[
-              "Core Values",
-              "Corporate Information",
-              "Board of Directors",
-              "Management Team",
-              "Terms of use",
-              "Privacy",
-            ]}
-          />
+        <div className="flex flex-1 flex-col">
+          <h4 className="text-black font-semibold text-base mb-1 lg:mb-2">
+            The Company
+          </h4>
+          <p className="text-sm text-left text-black text-opacity-50 pt-2">
+            Growth and Development Asset Management Limited (“GDL”) is a Limited
+            Liability company registered with the Corporate Affairs Commission
+            with RC Number: 623338.
+          </p>
+          <p className="text-sm text-left text-black text-opacity-50 pt-2">
+            GDL and its subsidiary companies are regulated by the Securities &
+            Exchange Commission, the Nigerian Stock Exchange and the Central
+            Bank of Nigeria.
+          </p>
         </div>
-        <div className=" flex flex-col">
+        <div className=" flex flex-1 flex-col">
           <ListComponent
-            name="Products"
+            name="Our Products"
             items={[
               "High Yield Note",
               "GDL Canary Fund",
               "Dollar Note",
               "Finance",
               "Money Market Fund",
+            ]}
+          />
+        </div>
+        <div className="flex flex-1 flex-col">
+          <ListComponent
+            name="Our Other Products"
+            items={[
               "Stockbroking",
               "Transgenerational Program",
               "Long Term Note",
               "GDL Income Fund",
-            ]}
-          />
-        </div>
-        <div className="flex flex-col">
-          <ListComponent
-            name="Resources"
-            items={[
-              "Blog",
-              "Career",
-              "Testimonials",
-              "Media",
-              "Research",
-              "FAQs",
-              "Contact",
             ]}
           />
         </div>
