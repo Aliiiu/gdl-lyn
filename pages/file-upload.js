@@ -1,26 +1,26 @@
-import { useS3Upload } from "next-s3-upload";
-import Image from "next/image";
 import React, { useEffect, useRef, useState, CSSProperties } from "react";
 import { useForm } from "react-hook-form";
 import { IoCheckmarkCircleSharp, IoCloseOutline } from "react-icons/io5";
 import { VscSaveAs } from "react-icons/vsc";
-// import { uploadFile } from "react-s3";
 import styled from "styled-components";
 import { FormImageField } from "../components/Widgets/Form/Form";
 import { GetStartedWrapper } from "./get-started";
-// window.Buffer = window.Buffer || require("buffer").Buffer;
 import { useRouter } from "next/router";
 import emailjs from "@emailjs/browser";
 import { toast, ToastContainer } from "react-toastify";
 import useLoading from "../hooks/useLoading";
 import ClipLoader from "react-spinners/ClipLoader";
+import { useS3Upload } from "next-s3-upload";
 
-export const CustomImageFile = styled.label`
-  display: inline-block;
+export const CustomImageFile = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
   position: relative;
   width: 300px;
   height: 191px;
-  cursor: pointer;
   background: white;
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   input[type="file"] {
@@ -61,12 +61,6 @@ const FileUpload = () => {
   const [userId, setUserId] = useState();
   const [utilityBill, setUtilityBill] = useState();
   const [uploadData, setUploadData] = useState([]);
-  // const [uploadPayload, setUploadPayload] = useState({
-  //   passport: "",
-  //   signature: "",
-  //   "user-id": "",
-  //   "utility-bill": "",
-  // });
   let [imageUrl, setImageUrl] = useState();
   let { FileInput, openFileDialog, uploadToS3 } = useS3Upload();
   const { loading, startLoading, stopLoading } = useLoading();
@@ -78,23 +72,25 @@ const FileUpload = () => {
   };
 
   const uploadDocFile = type => async file => {
+    startLoading();
     try {
       let obj = {};
       let { url } = await uploadToS3(file);
-      const new_url = url.replace("gdl-luxury-yield-note.", "");
+      // console.log(url);
+      stopLoading();
       obj = { type, url };
 
       if (type == "passport") {
-        setPassport(new_url);
+        setPassport(url);
       }
       if (type == "signature") {
-        setSignature(new_url);
+        setSignature(url);
       }
       if (type == "user-id") {
-        setUserId(new_url);
+        setUserId(url);
       }
       if (type == "utility-bill") {
-        setUtilityBill(new_url);
+        setUtilityBill(url);
       }
     } catch (error) {
       console.error(error);
@@ -104,43 +100,45 @@ const FileUpload = () => {
     mode: "onChange",
   });
 
-  useEffect(() => {
-    console;
-  });
   const onSubmit = data => {
-    startLoading();
-    const formData = JSON.parse(localStorage.getItem("formData")) || {};
-    // console.log(formData);
-    // console.log({ passport, signature, userId, utilityBill });
-    console.log({ ...formData, passport, signature, userId, utilityBill });
+    if (!passport || !signature || !userId || !utilityBill) {
+      toast.error("Missing fields are required!");
+    } else {
+      startLoading();
+      const formData = JSON.parse(localStorage.getItem("formData")) || {};
+      // console.log(formData);
+      // console.log({ passport, signature, userId, utilityBill });
+      // , ithomas@gdl.com.ng, jakinmolujoye@gdl.com.ng, ojoshua@gdl.com.ng, ailenloa@gdl.com.ng
+      console.log({ ...formData, passport, signature, userId, utilityBill });
 
-    emailjs
-      .send(
-        "service_9z472fn",
-        "template_04ppk2s",
-        { ...formData, passport, signature, userId, utilityBill },
-        "45DpXFvmZLKlgyjgW"
-      )
-      .then(
-        result => {
-          toast.success("Data sent successfully");
-          console.log(result);
-        },
-        error => {
-          toast.error(error.text);
-          console.error(error);
-        }
-      )
-      .finally(() => {
-        stopLoading();
-        localStorage.clear();
-        router.push("/");
-      });
+      emailjs
+        .send(
+          "service_9z472fn",
+          "template_04ppk2s",
+          { ...formData, passport, signature, userId, utilityBill },
+          "45DpXFvmZLKlgyjgW"
+        )
+        .then(
+          result => {
+            toast.success("Data sent successfully");
+            console.log(result);
+          },
+          error => {
+            toast.error(error.text);
+            console.error(error);
+          }
+        )
+        .finally(() => {
+          stopLoading();
+          localStorage.clear();
+          router.push("/");
+        });
+    }
   };
   return (
     <GetStartedWrapper>
       <ToastContainer />
-      <div className="container  mx-auto">
+      <div className="container bg-white mx-auto">
         <div className=" px-5 py-6">
           <div className="flex justify-center">
             <div className="flex w-full justify-center items-center">
@@ -156,31 +154,21 @@ const FileUpload = () => {
             onSubmit={handleSubmit(onSubmit)}
           >
             <div className="grid gap-4 md:grid-cols-2">
-              {/* <div>
-                <FileInput onChange={handleFileChange} />
-
-                <button onClick={openFileDialog}>Upload file</button>
-
-                {imageUrl && (
-                  <img
-                    src={imageUrl}
-                    className="border border-green-200 w-full h-full"
-                  />
-                )}
-              </div> */}
               <FormImageField
                 label={"Passport"}
                 name={"passport"}
                 register={register}
                 uploadFile={uploadDocFile("passport")}
-                // {...register("passport", { required: true })}
+                error={formState.errors.passport}
+                {...register("passport", { required: false })}
               />
               <FormImageField
                 label={"Signature"}
                 name={"signature"}
                 register={register}
                 uploadFile={uploadDocFile("signature")}
-                // {...register("signature", { required: true })}
+                error={formState.errors.signature}
+                {...register("signature", { required: false })}
               />
               <FormImageField
                 label={"User Identification"}
@@ -188,7 +176,8 @@ const FileUpload = () => {
                 register={register}
                 size={"1MB"}
                 uploadFile={uploadDocFile("user-id")}
-                // {...register("user-id", { required: true })}
+                error={formState.errors["user-id"]}
+                {...register("user-id", { required: false })}
               />
               <FormImageField
                 label={"Utility Bill"}
@@ -196,7 +185,8 @@ const FileUpload = () => {
                 register={register}
                 size={"1MB"}
                 uploadFile={uploadDocFile("utility-bill")}
-                // {...register("utility-bill", { required: true })}
+                error={formState.errors["utility-bill"]}
+                {...register("utility-bill", { required: false })}
               />
             </div>
 

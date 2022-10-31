@@ -7,9 +7,10 @@ import BankDetails from "../components/Widgets/Form/BankDetails";
 import { BsArrowRightShort } from "react-icons/bs";
 import { IoCloseOutline } from "react-icons/io5";
 import { useRouter } from "next/router";
+import pageBg from "../assets/Images/GDLBg.png";
 
 export const GetStartedWrapper = styled.div`
-  background-image: url("../assets/GDL_BI.png");
+  background-image: url("./GDLBg.png");
   background-size: cover;
   .container {
     padding: 1em;
@@ -98,7 +99,7 @@ const GetStarted = () => {
 
   return (
     <GetStartedWrapper>
-      <div className="container  mx-auto">
+      <div className="container z-20 bg-white mx-auto">
         <div className="px-5 py-6">
           <div className="flex justify-center">
             <div className="flex w-full justify-center items-center">

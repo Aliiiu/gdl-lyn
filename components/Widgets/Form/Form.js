@@ -19,6 +19,7 @@ import {
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Controller } from "react-hook-form";
 import { CustomImageFile } from "../../../pages/file-upload";
@@ -95,7 +96,7 @@ export const FormImageField = React.forwardRef(
       name,
       control,
       className,
-      formError,
+      error,
       uploadFile,
       register,
       size,
@@ -104,24 +105,29 @@ export const FormImageField = React.forwardRef(
   ) => {
     let { onChange } = register(name);
     const [image, setImage] = useState(null);
-    const [error, setError] = useState("");
+    const [formError, setFormError] = useState("");
     const fileRef = useRef();
+    const [fileerror, setFileError] = useState(error | null);
 
     const onFileChange = useCallback(async event => {
-      setError("");
-      if (event.target.files[0]) {
-        if (event.target.files[0].size < 250000) {
+      setFormError("");
+
+      if (event.target.files[0] || image == null) {
+        if (event.target.files[0].size < 1000000) {
           const base64 = await getBase64(event.target.files[0]);
 
           uploadFile(event.target.files[0]);
 
           setImage(base64);
           onChange(event);
+          setFileError(null);
         } else {
-          setError("File too large");
+          setFormError("File too large check here to compress it");
         }
       }
     }, []);
+
+    //
 
     return (
       <>
@@ -131,7 +137,10 @@ export const FormImageField = React.forwardRef(
           </div>
           <div className="flex flex-col gap-2">
             <CustomImageFile htmlFor={name}>
-              <div className="border-2 border-gray-400 w-[300px] h-[191px] flex justify-center items-center p-5">
+              <div
+                onClick={() => fileRef.current.click()}
+                className="border-2 border-gray-400 w-[200px] cursor-pointer h-[151px] flex justify-center items-center p-5"
+              >
                 {image ? (
                   <div className="flex flex-col gap-3">
                     <div className="relative rounded-2xl overflow-hidden shadow-sm w-[150px] h-[120px]">
@@ -142,12 +151,6 @@ export const FormImageField = React.forwardRef(
                         objectFit="contain"
                       />
                     </div>
-                    <span
-                      onClick={() => setImage("")}
-                      className="text-red-800 text-center text-xs"
-                    >
-                      Remove image
-                    </span>
                   </div>
                 ) : (
                   <span className="text-gray-400 text-sm text-center max-w-[200px]">
@@ -167,8 +170,19 @@ export const FormImageField = React.forwardRef(
                 multiple
               />
             </CustomImageFile>
-            {error && (
-              <h5 className="text-red-500 ml-[90px] text-sm">{error}</h5>
+            {formError && (
+              <h5 className="text-red-300 text-xs">
+                {formError}{" "}
+                <Link href="https://www.iloveimg.com/compress-image">
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-red-500"
+                  >
+                    https://www.iloveimg.com/compress-image
+                  </a>
+                </Link>
+              </h5>
             )}
             <span className="text-gray-400 font-thin text-xs">
               Accepted file type: .PNG .JPG, .JPEG
