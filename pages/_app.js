@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Script
         strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXX"
+        src="https://www.googletagmanager.com/gtag/js?id=G-Z8D1DNW2XT"
       ></Script>
       <Script
         id="google-analytics"
@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }) {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-XXXXXX', {
+          gtag('config', 'G-Z8D1DNW2XT', {
             page_path: window.location.pathname,
           });
         `,
