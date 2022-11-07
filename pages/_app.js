@@ -22,22 +22,18 @@ function MyApp({ Component, pageProps }) {
   }, [router.events]);
   return (
     <>
-      <Script
-        strategy="afterInteractive"
+      <script
+        async
         src="https://www.googletagmanager.com/gtag/js?id=G-Z8D1DNW2XT"
-      ></Script>
-      <Script
-        id="google-analytics"
-        strategy="afterInteractive"
+      ></script>
+      <script
         dangerouslySetInnerHTML={{
           __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-Z8D1DNW2XT', {
-            page_path: window.location.pathname,
-          });
-        `,
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+						gtag('config', 'G-Z8D1DNW2XT')
+					`,
         }}
       />
       <Topbar />
