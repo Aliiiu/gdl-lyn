@@ -8,6 +8,7 @@ import { BsArrowRightShort } from "react-icons/bs";
 import { IoCloseOutline } from "react-icons/io5";
 import { useRouter } from "next/router";
 import pageBg from "../assets/Images/GDLBg.png";
+import Cookies from "js-cookie";
 
 export const GetStartedWrapper = styled.div`
   background-image: url("./GDLBg.png");
@@ -93,7 +94,7 @@ const GetStarted = () => {
     console.log(data);
     console.log(data.firstname);
     localStorage.setItem("formData", JSON.stringify(data));
-
+    Cookies.set("allow", true);
     navigate.push("/file-upload");
   };
 

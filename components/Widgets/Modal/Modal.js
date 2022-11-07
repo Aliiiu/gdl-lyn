@@ -1,7 +1,6 @@
 import React, { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { ModalHeader } from "./modal.style";
-import { connect } from "react-redux";
 
 // import { AppButton } from "../Button/AppButton";
 // import { ExclamationIcon } from "@heroicons/react/outline";

@@ -11,6 +11,7 @@ import { toast, ToastContainer } from "react-toastify";
 import useLoading from "../hooks/useLoading";
 import ClipLoader from "react-spinners/ClipLoader";
 import { useS3Upload } from "next-s3-upload";
+import Cookies from "js-cookie";
 
 export const CustomImageFile = styled.div`
   display: flex;
@@ -108,7 +109,6 @@ const FileUpload = () => {
       const formData = JSON.parse(localStorage.getItem("formData")) || {};
       // console.log(formData);
       // console.log({ passport, signature, userId, utilityBill });
-      // , ithomas@gdl.com.ng, jakinmolujoye@gdl.com.ng, ojoshua@gdl.com.ng, ailenloa@gdl.com.ng
       console.log({ ...formData, passport, signature, userId, utilityBill });
 
       emailjs
@@ -131,6 +131,7 @@ const FileUpload = () => {
         .finally(() => {
           stopLoading();
           localStorage.clear();
+          Cookies.remove("allow");
           router.push("/");
         });
     }
