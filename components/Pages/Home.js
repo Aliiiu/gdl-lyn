@@ -34,7 +34,7 @@ const Home = () => {
           Sign Up For Guaranteed Perks (Such As High-Tech Modems, Data
           Subscriptions, Gift Vouchers and much more).
         </h5> */}
-        <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 px-14 sm:px-0 md:gap-6 py-7 xl:py-10">
+        {/* <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 px-14 sm:px-0 md:gap-6 py-7 xl:py-10">
           <StoreButton
             className="px-5 py-3 flex-1 max-w-max mx-auto md:mx-0"
             name={<Content type="PlayStore" img={PlayStore} />}
@@ -43,7 +43,7 @@ const Home = () => {
             className="px-5 py-3 flex-1 max-w-max mx-auto md:mx-0"
             name={<Content type="AppStore" img={AppStore} />}
           />
-        </div>
+        </div> */}
       </div>
       <div className="flex-1 flex flex-col">
         {/* <CustomImage

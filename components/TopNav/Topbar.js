@@ -14,7 +14,7 @@ import { TiThMenu } from "react-icons/ti";
 import { useRouter } from "next/router";
 
 const navigation = [
-  { name: "Home", href: "home", current: true },
+  // { name: "Home", href: "www.gdl.com.ng", current: true },
   { name: "Features", href: "products", current: false },
   { name: "Perks", href: "perks", current: false },
   { name: "Contact", href: "contact", current: false },
@@ -75,7 +75,7 @@ const Topbar2 = props => {
                 className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1"
                 id="navbar-sticky"
               >
-                <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-light md:border-0 md:bg-white text-gray-500">
+                <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:items-center md:space-x-8 md:mt-0 md:text-sm md:font-light md:border-0 md:bg-white text-gray-500">
                   {navigation.map(item => (
                     <Linker
                       key={item.name}
@@ -94,6 +94,15 @@ const Topbar2 = props => {
                       {item.name}
                     </Linker>
                   ))}
+                  <li className="text-lg text-[#8d2e36] font-medium">
+                    <a
+                      href="https://gdl.com.ng"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      About GDL
+                    </a>
+                  </li>
                 </ul>
               </div>
             )}
@@ -131,6 +140,15 @@ const Topbar2 = props => {
                         {item.name}
                       </Linker>
                     ))}
+                    <li className="text-lg mb-4 text-[#8d2e36] font-medium">
+                      <a
+                        href="https://gdl.com.ng"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        About GDL
+                      </a>
+                    </li>
                     <AppButton
                       name="Get Started"
                       className="bg-black px-4 py-2 text-md font-semibold"
