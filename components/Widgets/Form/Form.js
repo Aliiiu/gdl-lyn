@@ -38,6 +38,7 @@ export const FormTextField = React.forwardRef(
               <FormInput
                 ref={ref}
                 id={name}
+                type={type ? type : "text"}
                 multiline
                 label={
                   label || "How did you hear about us (social media, staff...)"

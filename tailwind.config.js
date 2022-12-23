@@ -18,6 +18,13 @@ module.exports = {
         white: "#fff",
         graytwocolor: "#2F2F2F",
       },
+      colors: {
+        primary: "#8D2733",
+        second: "#8D2E36",
+        info: "#717171",
+        white: "#fff",
+        graytwocolor: "#2F2F2F",
+      },
       animation: {
         "fade-in": "fadeIn 2s ease-in-out",
         "slide-up": "slideUp 1s ease-in-out",

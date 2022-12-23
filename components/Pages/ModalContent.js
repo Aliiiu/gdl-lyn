@@ -1,5 +1,4 @@
 import React from "react";
-import { rates } from "../../constants/plans";
 import Table from "../Widgets/Table";
 
 const ModalContent = props => {

@@ -1,24 +1,13 @@
 import React from "react";
 import Homepage from "./Home";
 import PageContainer from "../Layout/PageContainer";
-import Product from "./Product";
-import GetStarted from "./GetStarted";
-import LoanProduct from "./LoanProduct";
-import Investment from "./Investment";
-import Testimonies from "./Testimonies";
-import Blog from "./Blog";
 import FAQs from "./FAQs";
-import JoinClub from "./JoinClub";
 import Contact from "./Contact";
-import HowitWorks from "./HowitWorks";
-import Features from "./Features";
 import Merit from "./Merit";
 import E2ESecurity from "./E2ESecurity";
-import PricingPlan from "./PricingPlan";
 import { Container, CardDiv } from "./page.style";
 import { Content } from "../Widgets/Blog/BlogContent";
 import Table from "../Widgets/Table";
-import { rates } from "../../constants/plans";
 import Offer from "./Offer";
 
 const Main = () => {

@@ -2,22 +2,6 @@ import React, { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { ModalHeader } from "./modal.style";
 
-// import { AppButton } from "../Button/AppButton";
-// import { ExclamationIcon } from "@heroicons/react/outline";
-
-const HeaderView = props => (
-  <ModalHeader className="rounded-2xl mx-6 mt-4">
-    <div className="title">
-      <span className="text-2xl font-semibold text-white">{props.title}</span>
-    </div>
-    <div className="sub-title">
-      <small className="font-normal text-white text-sm">
-        {props.sub_title}
-      </small>
-    </div>
-  </ModalHeader>
-);
-
 const AppModal = props => {
   const cancelButtonRef = useRef(null);
 
@@ -29,7 +13,7 @@ const AppModal = props => {
         initialFocus={cancelButtonRef}
         onClose={props.onClose}
       >
-        <div className="flex items-end justify-center min-h-screen pt-4 pb-20 sm:block sm:p-0">
+        <div className="flex items-center justify-center min-h-screen">
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -59,15 +43,9 @@ const AppModal = props => {
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
             <div
-              onClick={props.onClose}
+              // onClick={props.onClose}
               className="inline-block align-top overflow-hidden transform transition-all sm:my-8 sm:align-middle"
             >
-              {!props.isDelete && props.add_header && (
-                <HeaderView
-                  title={props.modal_data}
-                  sub_title={props.sub_title}
-                />
-              )}
               {props.content}
             </div>
           </Transition.Child>
@@ -76,9 +54,5 @@ const AppModal = props => {
     </Transition.Root>
   );
 };
-
-// const mapStateToProps = state => ({
-//   modal_data: state.ui.modal.data,
-// });
 
 export default AppModal;
