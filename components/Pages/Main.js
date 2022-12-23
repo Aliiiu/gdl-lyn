@@ -7,8 +7,8 @@ import Merit from "./Merit";
 import E2ESecurity from "./E2ESecurity";
 import { Container, CardDiv } from "./page.style";
 import { Content } from "../Widgets/Blog/BlogContent";
-import Table from "../Widgets/Table";
 import Offer from "./Offer";
+import ExecutiveGuide from "./ExecutiveGuide";
 
 const Main = () => {
   return (
@@ -39,20 +39,12 @@ const Main = () => {
       >
         <E2ESecurity />
       </section>
-      {/* <section id="pricing-plan" className="container lg:w-4/6 w-full md:py-10">
-        <PricingPlan />
-      </section> */}
-      {/* <section id='' className='m-auto py-10'>
-				<GetStarted />
-			</section> */}
-      {/* <section
-        id="faq"
-        className="bg-[#8D2733] lg:w-5/6 xl:w-4/6 w-full py-10 lg:py-0"
-      >
-        <FAQs />
-      </section> */}
+
       <section className="bg-[#8D2733] flex py-10 justify-center w-full">
         <Offer />
+      </section>
+      <section className="container mx-auto py-10 lg:w-11/12 2xl:w-4/6 w-full ">
+        <ExecutiveGuide />
       </section>
       <section id="get-started" className="py-10 flex justify-center w-full">
         <div className="container w-full lg:w-11/12 2xl:w-4/6">

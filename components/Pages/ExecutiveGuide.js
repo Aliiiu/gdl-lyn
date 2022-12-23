@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { BsDownload } from "react-icons/bs";
+import { ClipLoader } from "react-spinners";
 import { FormTextField } from "../Widgets/Form/Form";
 import emailjs from "@emailjs/browser";
 import useLoading from "../../hooks/useLoading";
-import ClipLoader from "react-spinners/ClipLoader";
 
-const DetailsModal = props => {
+const ExecutiveGuide = () => {
   const { handleSubmit, formState, register, control } = useForm({
     mode: "onChange",
   });
@@ -40,14 +40,12 @@ const DetailsModal = props => {
   };
 
   return (
-    <section className="w-5/6 mx-auto">
+    <section className="w-5/6 bg-slate-200 shadow-xl md:w-3/6 mx-auto">
       {!showNext ? (
         <div className=" bg-white p-4 xl:p-10 rounded-lg">
-          <h3 className="font-semibold text-xl">
-            Download The Executive Guide To Wealth Preservation{" "}
-          </h3>
-          <p className="mb-3 font-light">
-            Please fill out the form below to gain access to the free guide.
+          <p className="mb-3 text-center font-light">
+            Please fill out the form below and we will get back to you as soon
+            as possible.
           </p>
           <form
             className="flex flex-col gap-5"
@@ -91,7 +89,7 @@ const DetailsModal = props => {
           </form>
         </div>
       ) : (
-        <div className=" bg-white p-10 rounded-lg">
+        <div className=" bg-white p-10 text-center rounded-lg">
           <h2 className="mb-3 text-2xl font-light">Congratulations</h2>
           <p className="mb-4">
             Kindly click the link below to download this ebook
@@ -105,8 +103,8 @@ const DetailsModal = props => {
             download
           >
             <button
-              onClick={props.onClose}
-              className="text-white py-2 px-4 rounded-lg flex items-center gap-2 bg-primary"
+              onClick={() => setShowNext(false)}
+              className="text-white mx-auto py-2 px-4 rounded-lg flex items-center gap-2 bg-primary"
             >
               <BsDownload className="text-white text-lg" />
               Download File
@@ -118,4 +116,4 @@ const DetailsModal = props => {
   );
 };
 
-export default DetailsModal;
+export default ExecutiveGuide;
