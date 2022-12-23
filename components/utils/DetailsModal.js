@@ -43,10 +43,10 @@ const DetailsModal = props => {
     <section className="w-5/6 mx-auto">
       {!showNext ? (
         <div className=" bg-white p-4 xl:p-10 rounded-lg">
-          <h3 className="font-semibold text-xl">
+          <h3 className="font-semibold text-center text-xl">
             Download The Executive Guide To Wealth Preservation{" "}
           </h3>
-          <p className="mb-3 font-light">
+          <p className="mb-3 text-center font-light">
             Please fill out the form below to gain access to the free guide.
           </p>
           <form
@@ -65,7 +65,7 @@ const DetailsModal = props => {
               name="phone"
               type="number"
               control={control}
-              error={formState.errors.phone_no}
+              error={formState.errors.phone}
               {...register("phone", { required: true })}
             />
             <FormTextField

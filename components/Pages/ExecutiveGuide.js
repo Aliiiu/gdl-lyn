@@ -63,7 +63,7 @@ const ExecutiveGuide = () => {
               name="phone"
               type="number"
               control={control}
-              error={formState.errors.phone_no}
+              error={formState.errors.phone}
               {...register("phone", { required: true })}
             />
             <FormTextField
