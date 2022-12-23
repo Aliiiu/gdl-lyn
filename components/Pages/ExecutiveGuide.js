@@ -40,7 +40,7 @@ const ExecutiveGuide = () => {
   };
 
   return (
-    <section className="w-5/6 bg-slate-200 shadow-xl md:w-3/6 mx-auto">
+    <section className="w-full bg-slate-200 shadow-xl md:w-3/6 mx-auto">
       {!showNext ? (
         <div className=" bg-white p-4 xl:p-10 rounded-lg">
           <p className="mb-3 text-center font-light">
