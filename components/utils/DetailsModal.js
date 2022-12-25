@@ -5,6 +5,7 @@ import { FormTextField } from "../Widgets/Form/Form";
 import emailjs from "@emailjs/browser";
 import useLoading from "../../hooks/useLoading";
 import ClipLoader from "react-spinners/ClipLoader";
+import { GiBookmarklet } from "react-icons/gi";
 
 const DetailsModal = props => {
   const { handleSubmit, formState, register, control } = useForm({
@@ -92,9 +93,10 @@ const DetailsModal = props => {
         </div>
       ) : (
         <div className=" bg-white p-10 rounded-lg">
-          <h2 className="mb-3 text-2xl font-light">Congratulations</h2>
+          <h2 className="mb-3 text-2xl font-light">Access Granted</h2>
           <p className="mb-4">
-            Kindly click the link below to download this ebook
+            Kindly click the link below to download the free guide{" "}
+            <GiBookmarklet className="text-primary inline-block text-lg" />
           </p>
           <a
             href={
